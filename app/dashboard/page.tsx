@@ -53,16 +53,10 @@ function PickRow({ pick }: { pick: Pick }) {
               Closing Price {fmtDate(pick.pick_date)}
             </span>
           )}
-          <span className="dash-pick-horizon">{pick.horizon_label}</span>
         </div>
       </div>
       <div className="dash-pick-right">
         <div className="dash-pick-price">${pick.price.toFixed(2)}</div>
-        <div className="dash-pick-plan">
-          <span className="tgt">+{Math.round(pick.target_pct)}%</span>
-          {" / "}
-          <span className="stp">-{Math.round(pick.stop_pct)}%</span>
-        </div>
       </div>
     </div>
   );
