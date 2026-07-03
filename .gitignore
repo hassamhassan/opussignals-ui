@@ -25,3 +25,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Client-provided static site kept locally as design reference (ported into app/)
+design-reference/
