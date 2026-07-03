@@ -2,19 +2,30 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  // Lock body scroll while the mobile nav is open (mirrors the static site).
+  // Lock body scroll while the mobile nav is open.
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // Close mobile nav on route change.
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
   const closeMenu = () => setMenuOpen(false);
+
+  // Returns "nav-active" if the given href path matches the current page.
+  // Hash-only links (/#section) are never highlighted.
+  const cls = (href: string): string => {
+    const linkPath = href.split("#")[0];
+    if (!linkPath || linkPath === "/") return "";
+    return pathname.startsWith(linkPath) ? "nav-active" : "";
+  };
 
   return (
     <>
@@ -62,17 +73,14 @@ export default function Nav() {
           <Link href="/#how-it-works">How It Works</Link>
           <Link href="/#methodology">Methodology</Link>
           <Link href="/#pricing">Pricing</Link>
-          <Link href="/about">About</Link>
-          <Link style={{ color: "#E5AA2A" }} href="/faq">
-            FAQ
-          </Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/institutional">Institutions</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/login">Log in</Link>
-          <Link href="/#pricing" className="ncta">
-            Subscribe
-          </Link>
+          <Link href="/about" className={cls("/about")}>About</Link>
+          {/* FAQ is always gold (brand accent) — active state adds weight */}
+          <Link href="/faq" className={cls("/faq")} style={{ color: "#E5AA2A" }}>FAQ</Link>
+          <Link href="/blog" className={cls("/blog")}>Blog</Link>
+          <Link href="/institutional" className={cls("/institutional")}>Institutions</Link>
+          <Link href="/contact" className={cls("/contact")}>Contact</Link>
+          <Link href="/login" className={cls("/login")}>Log in</Link>
+          <Link href="/#pricing" className="ncta">Subscribe</Link>
         </nav>
         <button
           className={`hamburger${menuOpen ? " open" : ""}`}
@@ -86,33 +94,15 @@ export default function Nav() {
       </header>
 
       <nav className={`mobile-nav${menuOpen ? " open" : ""}`}>
-        <Link href="/#how-it-works" onClick={closeMenu}>
-          How It Works
-        </Link>
-        <Link href="/#methodology" onClick={closeMenu}>
-          Methodology
-        </Link>
-        <Link href="/#pricing" onClick={closeMenu}>
-          Pricing
-        </Link>
-        <Link href="/about" onClick={closeMenu}>
-          About
-        </Link>
-        <Link href="/faq" onClick={closeMenu}>
-          FAQ
-        </Link>
-        <Link href="/blog" onClick={closeMenu}>
-          Blog
-        </Link>
-        <Link href="/institutional" onClick={closeMenu}>
-          Institutions
-        </Link>
-        <Link href="/contact" onClick={closeMenu}>
-          Contact
-        </Link>
-        <Link href="/login" onClick={closeMenu}>
-          Log in
-        </Link>
+        <Link href="/#how-it-works" onClick={closeMenu}>How It Works</Link>
+        <Link href="/#methodology" onClick={closeMenu}>Methodology</Link>
+        <Link href="/#pricing" onClick={closeMenu}>Pricing</Link>
+        <Link href="/about" onClick={closeMenu} className={cls("/about")}>About</Link>
+        <Link href="/faq" onClick={closeMenu} className={cls("/faq")}>FAQ</Link>
+        <Link href="/blog" onClick={closeMenu} className={cls("/blog")}>Blog</Link>
+        <Link href="/institutional" onClick={closeMenu} className={cls("/institutional")}>Institutions</Link>
+        <Link href="/contact" onClick={closeMenu} className={cls("/contact")}>Contact</Link>
+        <Link href="/login" onClick={closeMenu} className={cls("/login")}>Log in</Link>
       </nav>
     </>
   );

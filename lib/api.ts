@@ -47,6 +47,12 @@ export interface Pick {
   max_hold_sessions: number;
   confluence: number;
   details?: Record<string, unknown> | null;
+  /** ISO date (YYYY-MM-DD) when this pick was generated. */
+  pick_date?: string | null;
+  /** Outcome tracking — populated on the dashboard for the user's received picks. */
+  outcome_status?: "pending" | "success" | "failure" | null;
+  outcome_return_pct?: number | null;
+  outcome_sessions_held?: number | null;
 }
 
 /** A softer "watch list" entry served when no pick clears the bar. */

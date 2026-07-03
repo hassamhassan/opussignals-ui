@@ -7,48 +7,102 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import type { Pick } from "@/lib/api";
 import { getToken, logout } from "@/lib/auth";
-import {
-  fetchDashboard,
-  type DashboardResponse,
-  type WinRateBucket,
-} from "@/lib/user";
+import { fetchDashboard, type DashboardResponse } from "@/lib/user";
 import "./dashboard.css";
 
 const ACTIVE_STATUS = "active";
 
-function fmtRate(bucket: { win_rate: number | null; closed: number }): string {
-  if (bucket.win_rate === null) return "—";
-  return `${Math.round(bucket.win_rate)}%`;
+/** Format ISO date (YYYY-MM-DD) as "Jun 15, 2026". */
+function fmtDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const months = ["Jan","Feb","Mar","Apr","May","Jun",
+    "Jul","Aug","Sep","Oct","Nov","Dec"];
+  return `${months[m - 1]} ${d}, ${y}`;
 }
 
-function PerfCard({ bucket }: { bucket: WinRateBucket }) {
-  const na = bucket.win_rate === null;
+/** Per-pick outcome badge. */
+function OutcomeBadge({ pick }: { pick: Pick }) {
+  const status = pick.outcome_status;
+  if (!status || status === "pending") {
+    // Compute sessions remaining based on pick_date if available, else show "Open".
+    return <span className="outcome-badge pending">Open</span>;
+  }
+  if (status === "success") {
+    const ret = pick.outcome_return_pct != null
+      ? ` +${pick.outcome_return_pct.toFixed(1)}%`
+      : "";
+    return <span className="outcome-badge success">Win{ret}</span>;
+  }
+  const ret = pick.outcome_return_pct != null
+    ? ` ${pick.outcome_return_pct.toFixed(1)}%`
+    : "";
+  return <span className="outcome-badge failure">Loss{ret}</span>;
+}
+
+function PickRow({ pick }: { pick: Pick }) {
   return (
-    <div className="dash-perf">
-      <div className="dash-perf-label">{bucket.label}</div>
-      <div className={`dash-perf-rate${na ? " na" : ""}`}>
-        {na ? "No data" : fmtRate(bucket)}
+    <div className="dash-pick-row">
+      <div className="dash-pick-meta">
+        <div className="dash-pick-head">
+          <span className="pticker">{pick.ticker}</span>
+          <OutcomeBadge pick={pick} />
+        </div>
+        <div className="dash-pick-sub">
+          {pick.pick_date && (
+            <span className="dash-pick-date">
+              Closing Price {fmtDate(pick.pick_date)}
+            </span>
+          )}
+          <span className="dash-pick-horizon">{pick.horizon_label}</span>
+        </div>
       </div>
-      <div className="dash-perf-sub">
-        {bucket.wins}W · {bucket.losses}L
-        {bucket.pending > 0 ? ` · ${bucket.pending} open` : ""}
+      <div className="dash-pick-right">
+        <div className="dash-pick-price">${pick.price.toFixed(2)}</div>
+        <div className="dash-pick-plan">
+          <span className="tgt">+{Math.round(pick.target_pct)}%</span>
+          {" / "}
+          <span className="stp">-{Math.round(pick.stop_pct)}%</span>
+        </div>
       </div>
     </div>
   );
 }
 
-function PickRow({ pick }: { pick: Pick }) {
+/** Mini track record for the user's own picks. */
+function MyTrackRecord({ picks }: { picks: Pick[] }) {
+  const closed = picks.filter(p => p.outcome_status && p.outcome_status !== "pending");
+  const wins = closed.filter(p => p.outcome_status === "success").length;
+  const losses = closed.filter(p => p.outcome_status === "failure").length;
+  const open = picks.filter(p => !p.outcome_status || p.outcome_status === "pending").length;
+
+  if (closed.length === 0) {
+    return (
+      <div className="dash-track-empty">
+        Pick outcomes appear here after their hold window closes. Check back soon.
+      </div>
+    );
+  }
+
+  const rate = Math.round((wins / closed.length) * 100);
+  const rateClass = rate >= 70 ? "good" : rate >= 50 ? "ok" : "low";
+
   return (
-    <div className="pick">
-      <div className="prank">{pick.rank}</div>
-      <div className="pticker">{pick.ticker}</div>
-      <div className="pdesc">{pick.description}</div>
-      <div className="psig">{pick.signal_badge}</div>
-      <div className="dash-pick-price">${pick.price.toFixed(2)}</div>
-      <div className="dash-pick-plan">
-        <span className="tgt">+{Math.round(pick.target_pct)}%</span>
-        {" / "}
-        <span className="stp">-{Math.round(pick.stop_pct)}%</span>
+    <div className="dash-track-grid">
+      <div className="dash-track-stat">
+        <div className={`dash-track-rate ${rateClass}`}>{rate}%</div>
+        <div className="dash-track-label">Win rate</div>
+      </div>
+      <div className="dash-track-stat">
+        <div className="dash-track-num win">{wins}</div>
+        <div className="dash-track-label">Wins</div>
+      </div>
+      <div className="dash-track-stat">
+        <div className="dash-track-num loss">{losses}</div>
+        <div className="dash-track-label">Losses</div>
+      </div>
+      <div className="dash-track-stat">
+        <div className="dash-track-num">{open}</div>
+        <div className="dash-track-label">Open</div>
       </div>
     </div>
   );
@@ -66,8 +120,6 @@ export default function DashboardPage() {
     try {
       setData(await fetchDashboard());
     } catch (err) {
-      // authedFetch fires "os-session-expired" on an unrecoverable 401; that
-      // handler redirects, so only show non-auth errors here.
       setError(err instanceof Error ? err.message : "Could not load your dashboard.");
     } finally {
       setLoading(false);
@@ -164,8 +216,8 @@ export default function DashboardPage() {
             <div className="dash-card">
               <h2>Your picks</h2>
               <p className="dash-hint">
-                Every pick is time-stamped when published. Monitor its target and
-                stop, and track how it performs over the hold window.
+                Every pick is time-stamped to its closing price on the day it was
+                published. Win or loss is determined after the hold window closes.
               </p>
               {data.picks.length === 0 ? (
                 <div className="dash-empty">
@@ -173,66 +225,39 @@ export default function DashboardPage() {
                   setup clears the conviction bar — check back soon.
                 </div>
               ) : (
-                data.picks.map((p) => <PickRow key={`${p.rank}-${p.ticker}`} pick={p} />)
+                data.picks.map((p) => (
+                  <PickRow key={`${p.pick_date}-${p.ticker}`} pick={p} />
+                ))
               )}
             </div>
 
-            {/* Performance */}
-            <div className="dash-card">
-              <h2>Performance</h2>
-              <p className="dash-hint">
-                Win rate on closed picks — overall and by holding horizon.
-              </p>
-              <div className="dash-perf-grid">
-                <PerfCard bucket={data.performance.overall} />
-                {data.performance.by_horizon.map((b) => (
-                  <PerfCard key={b.label} bucket={b} />
-                ))}
+            {/* Your track record — only picks you received */}
+            {data.picks.length > 0 && (
+              <div className="dash-card">
+                <h2>Your track record</h2>
+                <p className="dash-hint">
+                  Win / loss on picks you received from us, based on the closing
+                  price when the pick was published.
+                </p>
+                <MyTrackRecord picks={data.picks} />
               </div>
-            </div>
-
-            {/* Guarantee */}
-            <div className="dash-card">
-              <h2>The 70% guarantee</h2>
-              <div className="dash-guarantee">
-                <div className="g-icon">{data.guarantee.breached ? "⚠️" : "🛡️"}</div>
-                <div>
-                  <div
-                    className={`g-status ${data.guarantee.breached ? "breached" : "ok"}`}
-                  >
-                    {data.guarantee.breached
-                      ? "Guarantee window breached"
-                      : "On track"}
-                  </div>
-                  <div className="g-detail">
-                    Rolling {data.guarantee.window_sessions}-session win rate:{" "}
-                    {fmtRate(data.guarantee)} vs a{" "}
-                    {Math.round(data.guarantee.threshold)}% guaranteed minimum
-                    {data.guarantee.closed > 0
-                      ? ` (${data.guarantee.wins}W · ${data.guarantee.losses}L across ${data.guarantee.closed} closed).`
-                      : " (no closed picks in the window yet)."}
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
 
             {/* Credits */}
-            <div className="dash-card">
-              <h2>Credits</h2>
-              <p className="dash-hint">
-                Credits issued for days without a qualifying pick.
-              </p>
-              {data.credits.length === 0 ? (
-                <div className="dash-empty">No credits on your account.</div>
-              ) : (
-                data.credits.map((c, i) => (
+            {data.credits.length > 0 && (
+              <div className="dash-card">
+                <h2>Credits</h2>
+                <p className="dash-hint">
+                  Credits issued for days without a qualifying pick.
+                </p>
+                {data.credits.map((c, i) => (
                   <div key={`${c.credited_date}-${i}`} className="dash-credit">
                     <span className="c-date">{c.credited_date}</span>
                     <span className="c-reason">{c.reason}</span>
                   </div>
-                ))
-              )}
-            </div>
+                ))}
+              </div>
+            )}
           </>
         )}
       </div>

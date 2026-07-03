@@ -232,6 +232,153 @@
   margin-top: 6px;
 }
 
+/* ── Outcome badge ── */
+.outcome-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.outcome-badge.pending {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--gray2);
+}
+
+.outcome-badge.success {
+  background: rgba(27, 107, 58, 0.18);
+  border: 1px solid rgba(27, 107, 58, 0.4);
+  color: #6fd08c;
+}
+
+.outcome-badge.failure {
+  background: rgba(139, 26, 26, 0.18);
+  border: 1px solid rgba(139, 26, 26, 0.4);
+  color: #e08585;
+}
+
+/* ── Redesigned pick row for dashboard ── */
+.dash-pick-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dash-pick-row:last-child {
+  border-bottom: none;
+}
+
+.dash-pick-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-pick-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.dash-pick-head .pticker {
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.dash-pick-sub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dash-pick-date {
+  font-size: 12px;
+  color: var(--gray2);
+}
+
+.dash-pick-horizon {
+  font-size: 11px;
+  color: var(--gold);
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dash-pick-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+/* ── Track record ── */
+.dash-track-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.dash-track-stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.dash-track-rate {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.dash-track-rate.good { color: #6fd08c; }
+.dash-track-rate.ok { color: var(--gold2); }
+.dash-track-rate.low { color: #e08585; }
+
+.dash-track-num {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.dash-track-num.win { color: #6fd08c; }
+.dash-track-num.loss { color: #e08585; }
+
+.dash-track-label {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray2);
+}
+
+.dash-track-empty {
+  font-size: 13px;
+  color: var(--gray2);
+  padding: 8px 2px;
+  line-height: 1.55;
+}
+
 /* ── Guarantee ── */
 .dash-guarantee {
   display: flex;
