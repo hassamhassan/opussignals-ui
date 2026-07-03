@@ -1,0 +1,299 @@
+/* Scoped styles for the account dashboard. Reuses design tokens + the .pick
+   row style from globals.css; adds the card grid + account header chrome. */
+
+.dash-page {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px 24px 72px;
+}
+
+.dash-state {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.dash-state .auth-error {
+  max-width: 460px;
+}
+
+/* ── Account header ── */
+.dash-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.dash-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 6px;
+}
+
+.dash-email {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  word-break: break-word;
+}
+
+.dash-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.dash-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--gray);
+}
+
+.dash-badge.active {
+  border-color: rgba(27, 107, 58, 0.45);
+  background: rgba(27, 107, 58, 0.16);
+  color: #6fd08c;
+}
+
+.dash-badge.gold {
+  border-color: rgba(200, 146, 26, 0.4);
+  background: rgba(200, 146, 26, 0.12);
+  color: var(--gold2);
+}
+
+.dash-signout {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gray);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 7px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.dash-signout:hover {
+  color: #fff;
+  border-color: rgba(200, 146, 26, 0.4);
+}
+
+/* ── Section cards ── */
+.dash-card {
+  background: rgba(22, 36, 56, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 26px 26px;
+  margin-bottom: 22px;
+}
+
+.dash-card h2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: 0.2px;
+  margin-bottom: 4px;
+}
+
+.dash-card .dash-hint {
+  font-size: 12.5px;
+  color: var(--gray);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+/* ── Free-picks strip + subscribe CTA ── */
+.dash-free {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(200, 146, 26, 0.07);
+  border: 1px solid rgba(200, 146, 26, 0.28);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 22px;
+}
+
+.dash-free-copy {
+  font-size: 13.5px;
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+.dash-free-copy strong {
+  color: var(--gold2);
+}
+
+.dash-free .pbtn {
+  width: auto;
+  padding: 11px 22px;
+  white-space: nowrap;
+}
+
+/* ── Pick rows (extends .pick from globals.css) ── */
+.dash-pick-price {
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  color: var(--cream);
+  width: 66px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.dash-pick-plan {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  width: 108px;
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+.dash-pick-plan .tgt {
+  color: #6fd08c;
+}
+
+.dash-pick-plan .stp {
+  color: #e08585;
+}
+
+.dash-empty {
+  font-size: 13px;
+  color: var(--gray2);
+  padding: 8px 2px;
+}
+
+/* ── Performance grid ── */
+.dash-perf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.dash-perf {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 16px 16px;
+}
+
+.dash-perf-label {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray2);
+  margin-bottom: 8px;
+}
+
+.dash-perf-rate {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.dash-perf-rate.na {
+  color: var(--gray2);
+  font-size: 18px;
+}
+
+.dash-perf-sub {
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 6px;
+}
+
+/* ── Guarantee ── */
+.dash-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dash-guarantee .g-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.dash-guarantee .g-status {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.dash-guarantee .g-status.ok {
+  color: #6fd08c;
+}
+
+.dash-guarantee .g-status.breached {
+  color: #e08585;
+}
+
+.dash-guarantee .g-detail {
+  font-size: 12.5px;
+  color: var(--gray);
+  margin-top: 3px;
+}
+
+/* ── Credits ── */
+.dash-credit {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+}
+
+.dash-credit:last-child {
+  border-bottom: none;
+}
+
+.dash-credit .c-date {
+  font-family: "DM Mono", monospace;
+  color: var(--gold2);
+  flex-shrink: 0;
+}
+
+.dash-credit .c-reason {
+  color: var(--gray);
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .dash-pick-plan {
+    display: none;
+  }
+  .pdesc {
+    display: none;
+  }
+}

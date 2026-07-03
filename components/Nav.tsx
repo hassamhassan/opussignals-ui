@@ -69,6 +69,7 @@ export default function Nav() {
           <Link href="/blog">Blog</Link>
           <Link href="/institutional">Institutions</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/login">Log in</Link>
           <Link href="/#pricing" className="ncta">
             Subscribe
           </Link>
@@ -108,6 +109,9 @@ export default function Nav() {
         </Link>
         <Link href="/contact" onClick={closeMenu}>
           Contact
+        </Link>
+        <Link href="/login" onClick={closeMenu}>
+          Log in
         </Link>
       </nav>
     </>
