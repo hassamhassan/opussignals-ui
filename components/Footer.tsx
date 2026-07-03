@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         <div className="fshare">
           <a
-            href="https://twitter.com/intent/tweet?text=OpusSignals%20will%20give%20you%20an%20Unfair%20Advantage%20in%20the%20Stock%20Market.&url=https%3A%2F%2Fopussignals.com%2F"
+            href="https://twitter.com/intent/tweet?text=OpusSignals%20will%20give%20you%20an%20Unfair%20Advantage%20in%20the%20Stock%20Market.&url=https%3A%2F%2Fapp.opussignals.com%2F"
             target="_blank"
             rel="noopener"
             aria-label="Share on X"
@@ -59,7 +59,7 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopussignals.com%2F"
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fapp.opussignals.com%2F"
             target="_blank"
             rel="noopener"
             aria-label="Share on LinkedIn"
@@ -73,8 +73,8 @@ export default function Footer() {
           <a href="https://www.karimpirani.com" target="_blank" rel="noopener">
             Karim Pirani
           </a>
-          <a href="https://www.pnfchart.com" target="_blank" rel="noopener">
-            PnFChart
+          <a href="https://chart.opussignals.com" target="_blank" rel="noopener">
+            P&amp;F Chart
           </a>
           <a
             href="https://www.investorchatter.com"

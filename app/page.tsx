@@ -1470,8 +1470,8 @@ export default function HomePage() {
           years of <br />
           active market expertise.
         </p>
-        <a href="https://pnfchart.com" className="plink">
-          Learn more at PnFChart.com &rarr;
+        <a href="https://chart.opussignals.com" className="plink">
+          Learn more at chart.opussignals.com &rarr;
         </a>
       </div>
 

@@ -1864,7 +1864,7 @@ export default function AboutPage() {
               </a>
               <br />
               <a
-                href="https://opussignals.com"
+                href="https://app.opussignals.com"
                 target="_blank"
                 rel="noopener"
                 style={{

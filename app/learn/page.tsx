@@ -863,8 +863,8 @@ export default function LearnPage() {
           <p>
             If you want to go deeper into P&amp;F methodology &mdash; charts,
             patterns, and the underlying theory &mdash; I am also building out{" "}
-            <a href="https://www.pnfchart.com" target="_blank" rel="noopener">
-              PnFChart.com
+            <a href="https://chart.opussignals.com" target="_blank" rel="noopener">
+              chart.opussignals.com
             </a>
             , a dedicated resource for Point &amp; Figure practitioners. It is
             currently in development, but worth bookmarking if this methodology

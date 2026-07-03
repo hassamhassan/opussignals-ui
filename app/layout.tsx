@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://app.opussignals.com"),
   title: "OpusSignals.com — Verified Stock Picks | OpusEngine™",
   description:
     "High-conviction stock picks powered by OpusEngine™ — a P&F and candlestick methodology built on 35+ years of trading. Less Noise. More Conviction.",
