@@ -95,9 +95,8 @@ export interface LeadResponse {
 
 const API_PREFIX = "/api/v1";
 
-/** Default range sent to /scan when the visitor hasn't picked one. The backend
- * requires `range`; during the early test phase picks span multiple ranges, so
- * a mid-cap default is a reasonable neutral choice. */
+/** Default range sent to /scan when the visitor hasn't picked one — a mid-cap
+ * range is a reasonable neutral choice. */
 const DEFAULT_RANGE: PriceRange = "$20-$50";
 
 async function readError(res: Response): Promise<string> {
@@ -129,14 +128,16 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return (await res.json()) as T;
 }
 
-/** Run a free scan. `range` defaults to a mid-cap range when omitted, since the
- * backend requires it. `horizon` is optional. */
+/** Run a free scan across one or more ranges. The backend spreads the free
+ * picks across the selected ranges (a single range returns all of them). Falls
+ * back to a mid-cap range when none are selected. `horizon` is optional. */
 export function runFreeScan(
-  range?: PriceRange,
+  ranges?: PriceRange[],
   horizon?: PickHorizon,
 ): Promise<ScanResponse> {
   const params = new URLSearchParams();
-  params.set("range", range ?? DEFAULT_RANGE);
+  const list = ranges && ranges.length > 0 ? ranges : [DEFAULT_RANGE];
+  for (const r of list) params.append("ranges", r);
   if (horizon) params.set("horizon", horizon);
   return request<ScanResponse>(`/scan?${params.toString()}`);
 }

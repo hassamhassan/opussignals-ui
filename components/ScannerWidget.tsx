@@ -91,22 +91,17 @@ function PreScanIntro({ onProceed }: { onProceed: () => void }) {
   );
 }
 
-/** Shown when picks were generated but admin hasn't published them yet. */
-function PicksCalibrating({ pickDate }: { pickDate?: string }) {
+/** Shown when the scan ran but today's picks haven't been published yet. Plain,
+ * static message — no animation, so it never reads as "stuck loading". */
+function PicksNotPublished({ pickDate }: { pickDate?: string }) {
   return (
     <div className="calibrating">
-      <div className="cal-pulse">
-        <span></span><span></span><span></span>
-      </div>
-      <div className="cal-title">
-        OpusEngine&trade; is finalizing today&apos;s picks
-      </div>
+      <div className="cal-title">Today&apos;s picks aren&apos;t published yet</div>
       <p className="cal-body">
-        Our system has completed its scan but today&apos;s picks are being
-        reviewed before release.{" "}
-        {pickDate
-          ? `Picks for ${formatPickDate(pickDate)} will be live soon.`
-          : "Check back shortly — we only publish when every signal lines up."}
+        <OpusEngine /> has finished scanning
+        {pickDate ? ` for ${formatPickDate(pickDate)}` : ""}, but today&apos;s
+        high-conviction picks haven&apos;t been released yet. They&apos;re
+        reviewed before going live &mdash; please check back shortly.
       </p>
       <div className="cal-badge">
         &#9656; &nbsp;High-conviction or nothing
@@ -118,7 +113,7 @@ function PicksCalibrating({ pickDate }: { pickDate?: string }) {
 export default function ScannerWidget() {
   const [funnelState, setFunnelState] = useState<FunnelState>("free_picks");
   const [session, setSession] = useState<SessionStatus | null>(null);
-  const [selectedRange, setSelectedRange] = useState<PriceRange | null>(null);
+  const [selectedRanges, setSelectedRanges] = useState<PriceRange[]>([]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -159,8 +154,10 @@ export default function ScannerWidget() {
     };
   }, []);
 
-  function selectRange(range: PriceRange) {
-    setSelectedRange(range);
+  function toggleRange(range: PriceRange) {
+    setSelectedRanges((prev) =>
+      prev.includes(range) ? prev.filter((r) => r !== range) : [...prev, range],
+    );
     setScanned(false);
     setPicksNotPublished(false);
     setError(null);
@@ -171,7 +168,7 @@ export default function ScannerWidget() {
     setError(null);
     setPicksNotPublished(false);
     try {
-      const res = await runFreeScan(selectedRange ?? undefined);
+      const res = await runFreeScan(selectedRanges);
       setFunnelState(res.funnel_state);
       setSession(res.session);
       setScanned(true);
@@ -268,12 +265,12 @@ export default function ScannerWidget() {
           &#9656; Live Scanner &mdash; OpusEngine
           <sup style={{ fontSize: "10px", fontWeight: 100 }}>TM</sup>
         </div>
-        <h2>Select Your Price Range</h2>
+        <h2>Select Your Price Range(s)</h2>
         <p>
-          Select the range you like to trade within &mdash; from micro-cap
-          momentum at $2&ndash;$5 to premium leaders at $100&ndash;$500.{" "}
-          <OpusEngine /> scans the Russell 2000 + S&amp;P 500 within your
-          preferred range and surfaces its highest-conviction pick for you.
+          Choose one or more ranges you like to trade within &mdash; from
+          micro-cap momentum at $2&ndash;$5 to premium leaders at
+          $100&ndash;$500. <OpusEngine /> scans the Russell 2000 + S&amp;P 500
+          across your selected ranges and spreads your 3 free picks across them.
         </p>
 
         <div className="free-badge">
@@ -286,8 +283,9 @@ export default function ScannerWidget() {
             <button
               key={r.value}
               type="button"
-              className={`rb${selectedRange === r.value ? " sel" : ""}`}
-              onClick={() => selectRange(r.value)}
+              className={`rb${selectedRanges.includes(r.value) ? " sel" : ""}`}
+              onClick={() => toggleRange(r.value)}
+              aria-pressed={selectedRanges.includes(r.value)}
             >
               <div className="rl">{r.label}</div>
               <div className="rs">{r.sub}</div>
@@ -295,8 +293,9 @@ export default function ScannerWidget() {
           ))}
         </div>
         <div className="range-note">
-          Pick a range for a targeted scan, or run it as-is &mdash;{" "}
-          <strong>today&apos;s 3 picks span multiple ranges</strong>.
+          Tap one or more ranges &mdash; your 3 picks are{" "}
+          <strong>spread across the ranges you select</strong>. Pick just one and
+          all 3 come from it. Select none to scan the mid-cap range.
         </div>
 
         {showScanner && (
@@ -357,7 +356,7 @@ export default function ScannerWidget() {
 
         {/* Picks not published yet — admin hasn't released today's picks */}
         {scanned && picksNotPublished && showScanner && (
-          <PicksCalibrating pickDate={pickDate ?? undefined} />
+          <PicksNotPublished pickDate={pickDate ?? undefined} />
         )}
 
         {/* Visit 1 results */}
@@ -367,7 +366,9 @@ export default function ScannerWidget() {
               <span className="rtitle">
                 &#9656; High-Conviction Picks &mdash;{" "}
                 <span id="rangeDisplay">
-                  {selectedRange ?? "Today's 3 High-Conviction Picks"}
+                  {selectedRanges.length > 0
+                    ? selectedRanges.join(" · ")
+                    : "Today's 3 High-Conviction Picks"}
                 </span>
               </span>
               <span className="rbadge" id="scanTime">
@@ -393,7 +394,7 @@ export default function ScannerWidget() {
                   </div>
                 ))
               ) : (
-                <PicksCalibrating />
+                <PicksNotPublished />
               )}
             </div>
             {picks.length > 0 && (
