@@ -19,9 +19,10 @@ header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify
 .lf{font-family:'Cabinet Grotesk',sans-serif;font-size:19px;font-weight:500;color:#fff;letter-spacing:-.5px}
 .ld{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray);margin-left:2px}
 nav{display:flex;align-items:center;gap:28px}
-nav a{font-size:13px;font-weight:500;color:var(--gray);text-decoration:none;transition:color .2s}
+nav a{position:relative;font-size:13px;font-weight:500;color:var(--gray);text-decoration:none;transition:color .2s}
 nav a:hover{color:var(--gold2)}
-nav a.nav-active{color:var(--gold2);font-weight:600}
+nav a.nav-active{color:var(--gold2)!important;font-weight:700}
+nav a.nav-active::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:2px;background:var(--gold2);border-radius:2px}
 .ncta{background:var(--gold);color:var(--navy)!important;font-weight:700!important;padding:9px 22px;border-radius:var(--r);transition:background .2s!important}
 .ncta:hover{background:var(--gold2)!important}
 
