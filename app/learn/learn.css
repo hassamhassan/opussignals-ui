@@ -1,0 +1,79 @@
+/* Learn (What Is Point & Figure) — scoped under .learn-page.
+   Source page background was #0A1628 (navy2) with Georgia serif body. */
+.learn-page{background:#0A1628;color:#F8F3E8}
+
+/* BLOG LAYOUT */
+.learn-page .blog-wrap{max-width:780px;margin:0 auto;padding:60px 24px 100px}
+
+/* BREADCRUMB */
+.learn-page .breadcrumb{font-size:13px;color:var(--gray);margin-bottom:32px}
+.learn-page .breadcrumb a{color:var(--gray);text-decoration:none}
+.learn-page .breadcrumb a:hover{color:var(--gold2)}
+.learn-page .breadcrumb span{margin:0 8px;opacity:.5}
+
+/* ARTICLE HEADER */
+.learn-page .article-eyebrow{font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-family:'Inter',sans-serif}
+.learn-page .article-title{font-family:'Georgia',serif;font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.25;color:#F8F3E8;margin-bottom:20px}
+.learn-page .article-meta{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--gray);margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid rgba(200,146,26,.2)}
+.learn-page .article-meta .author{color:var(--gold2);font-weight:500}
+
+/* GLANCE BOX */
+.learn-page .glance-box{background:rgba(13,27,46,.9);border:1px solid rgba(200,146,26,.35);border-left:3px solid var(--gold);border-radius:10px;padding:28px 32px;margin:0 0 40px}
+.learn-page .glance-box .label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.learn-page .glance-box p{font-size:15px;color:#C2D2E0;margin:0;line-height:1.75;font-family:'Inter',sans-serif}
+
+/* ARTICLE BODY */
+.learn-page .article-body{font-family:'Georgia',serif;font-size:17px;line-height:1.85;color:#C2D2E0}
+.learn-page .article-body p{margin-bottom:24px}
+.learn-page .article-body h2{font-family:'Inter',sans-serif;font-size:22px;font-weight:600;color:#F8F3E8;margin:48px 0 16px;letter-spacing:-.3px}
+.learn-page .article-body h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--gold2);margin:32px 0 12px;letter-spacing:-.2px}
+.learn-page .article-body strong{color:#F8F3E8;font-weight:600}
+.learn-page .article-body em{font-style:italic;color:#C2D2E0}
+.learn-page .article-body a{color:var(--gold2);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* PULL QUOTE */
+.learn-page .pull-quote{border-left:3px solid var(--gold);padding:20px 28px;margin:40px 0;background:rgba(200,146,26,.06);border-radius:0 8px 8px 0}
+.learn-page .pull-quote p{font-family:'Georgia',serif;font-size:19px;font-style:italic;color:#F8F3E8;line-height:1.6;margin:0}
+.learn-page .pull-quote cite{display:block;margin-top:12px;font-size:13px;font-style:normal;color:var(--gray);font-family:'Inter',sans-serif}
+
+/* KEY CONCEPT BOX */
+.learn-page .concept-box{background:rgba(13,27,46,.8);border:1px solid rgba(200,146,26,.25);border-radius:10px;padding:28px 32px;margin:36px 0}
+.learn-page .concept-box .label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.learn-page .concept-box p{font-size:16px;color:#C2D2E0;margin:0;line-height:1.7;font-family:'Inter',sans-serif}
+
+/* CHART WRAPPER */
+.learn-page .chart-block{margin:28px 0;background:rgba(13,27,46,.7);border:1px solid rgba(200,146,26,.2);border-radius:10px;padding:24px 20px 16px}
+.learn-page .chart-block .chart-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.learn-page .chart-block p{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray);margin:8px 0 0;text-align:center}
+
+/* COMPARISON TABLE */
+.learn-page .comparison-wrap{margin:36px 0;overflow-x:auto}
+.learn-page .comparison-table{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:14px}
+.learn-page .comparison-table th{background:rgba(200,146,26,.15);color:var(--gold);font-weight:600;padding:12px 16px;text-align:left;font-size:12px;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid rgba(200,146,26,.2)}
+.learn-page .comparison-table td{padding:11px 16px;border-bottom:1px solid rgba(200,146,26,.08);color:#C2D2E0;vertical-align:middle}
+.learn-page .comparison-table tr:nth-child(even) td{background:rgba(13,27,46,.4)}
+.learn-page .comparison-table td:first-child{color:#F8F3E8;font-weight:500}
+.learn-page .badge-good{display:inline-block;background:rgba(34,197,94,.15);color:#4ade80;border-radius:4px;padding:2px 8px;font-size:12px;font-weight:600}
+.learn-page .badge-mod{display:inline-block;background:rgba(200,146,26,.15);color:var(--gold2);border-radius:4px;padding:2px 8px;font-size:12px;font-weight:600}
+
+/* FAQ */
+.learn-page .faq-block{margin:48px 0 0}
+.learn-page .faq-block h2{font-family:'Inter',sans-serif;font-size:22px;font-weight:600;color:#F8F3E8;margin:0 0 24px;letter-spacing:-.3px}
+.learn-page .faq-item{border-bottom:1px solid rgba(200,146,26,.12);padding:20px 0}
+.learn-page .faq-item:first-of-type{border-top:1px solid rgba(200,146,26,.12)}
+.learn-page .faq-q{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:#F8F3E8;margin-bottom:10px}
+.learn-page .faq-a{font-family:'Inter',sans-serif;font-size:15px;color:#C2D2E0;line-height:1.72;margin:0}
+
+/* KEY TAKEAWAYS */
+.learn-page .takeaways{background:rgba(200,146,26,.07);border:1px solid rgba(200,146,26,.25);border-radius:10px;padding:28px 32px;margin:40px 0}
+.learn-page .takeaways .label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.learn-page .takeaways ul{list-style:none;padding:0;margin:0}
+.learn-page .takeaways ul li{font-family:'Inter',sans-serif;font-size:15px;color:#C2D2E0;padding:5px 0 5px 20px;position:relative;line-height:1.6}
+.learn-page .takeaways ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* CTA BLOCK */
+.learn-page .article-cta{background:rgba(200,146,26,.07);border:1px solid rgba(200,146,26,.3);border-radius:12px;padding:36px 40px;margin:60px 0 0;text-align:center}
+.learn-page .article-cta h3{font-family:'Inter',sans-serif;font-size:20px;font-weight:600;color:#F8F3E8;margin-bottom:10px}
+.learn-page .article-cta p{font-size:15px;color:#C2D2E0;margin-bottom:24px;font-family:'Inter',sans-serif}
+.learn-page .article-cta a{display:inline-block;background:var(--gold);color:#0A1628;font-family:'Inter',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;padding:14px 32px;border-radius:6px;text-decoration:none;transition:background .2s}
+.learn-page .article-cta a:hover{background:var(--gold2)}

@@ -1,0 +1,93 @@
+/* Institutional page — scoped under .inst-page to avoid global collisions.
+   The source page defined its own --gray (#8899AA) and --gray2 (#445566),
+   which differ from the global tokens; those specific values are inlined here. */
+.inst-page{--r:8px}
+
+/* HERO */
+.inst-page .inst-hero{position:relative;z-index:2;padding:80px 60px 60px;max-width:900px;margin:0 auto;text-align:center}
+.inst-page .inst-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(200,146,26,.06) 0%,transparent 68%);pointer-events:none}
+.inst-page .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);background:rgba(200,146,26,.08);border:1px solid rgba(200,146,26,.2);padding:7px 16px;border-radius:20px;margin-bottom:28px}
+.inst-page .inst-hero h1{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(32px,5vw,50px);font-weight:500;color:var(--gold2);line-height:1.08;margin-bottom:20px;letter-spacing:-1.5px}
+.inst-page .inst-hero h1 em{font-style:normal;color:#ffffff}
+.inst-page .inst-hero p{font-size:16px;color:#8899AA;line-height:1.8;max-width:680px;margin:0 auto 40px;font-weight:300}
+.inst-page .inst-hero p strong{color:var(--cream);font-weight:500}
+
+/* FEE BADGE */
+.inst-page .fee-badge{display:inline-flex;flex-direction:column;align-items:center;background:rgba(200,146,26,.08);border:2px solid rgba(200,146,26,.35);border-radius:14px;padding:28px 56px;margin-bottom:16px;position:relative}
+.inst-page .fee-amount{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(32px,5vw,42px);font-weight:400;color:#6b7a8a;line-height:1;letter-spacing:-1px}
+.inst-page .fee-amount sup{font-size:.4em;vertical-align:top;margin-top:12px;font-weight:400}
+.inst-page .fee-per{font-size:13px;color:var(--gold);margin-top:6px;text-transform:uppercase}
+.inst-page .fee-note{font-size:12px;color:#ffffff;margin-top:8px;font-style:italic}
+
+/* DIVIDER */
+.inst-page .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,146,26,.2),transparent);margin:0 60px}
+
+/* WHO SECTION */
+.inst-page .who-sec{position:relative;z-index:2;padding:64px 60px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.inst-page .who-label{font-family:'DM Mono',monospace;font-size:20px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500}
+.inst-page .who-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-.8px}
+.inst-page .who-title em{font-style:normal;color:var(--gold2)}
+.inst-page .who-p{font-size:14px;color:#8899AA;line-height:1.8;font-weight:300;margin-bottom:14px}
+.inst-page .who-p strong{color:var(--cream);font-weight:500}
+.inst-page .who-cards{display:flex;flex-direction:column;gap:14px}
+.inst-page .who-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.inst-page .who-card:hover{border-color:rgba(200,146,26,.2);background:rgba(200,146,26,.04)}
+.inst-page .who-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.inst-page .who-card h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}
+.inst-page .who-card p{font-size:12px;color:#8899AA;line-height:1.55;font-weight:300}
+
+/* KARIM BIO STRIP */
+.inst-page .karim-strip{position:relative;z-index:2;background:rgba(22,36,56,.8);border-top:1px solid rgba(200,146,26,.12);border-bottom:1px solid rgba(200,146,26,.12);padding:48px 60px}
+.inst-page .karim-strip-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:80px 1fr;gap:28px;align-items:center}
+.inst-page .karim-avatar{width:80px;height:80px;background:rgba(200,146,26,.1);border:2px solid rgba(200,146,26,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.inst-page .karim-strip h3{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:-.3px}
+.inst-page .karim-strip .title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.inst-page .karim-strip p{font-size:13px;color:#8899AA;line-height:1.7;font-weight:300;max-width:700px}
+.inst-page .karim-strip p strong{color:var(--cream);font-weight:500}
+.inst-page .karim-strip a{font-size:12px;color:var(--gold);text-decoration:none;font-weight:500;margin-top:8px;display:inline-block;transition:color .2s}
+.inst-page .karim-strip a:hover{color:var(--gold2)}
+
+/* FORM SECTION */
+.inst-page .form-sec{position:relative;z-index:2;padding:72px 60px;max-width:800px;margin:0 auto}
+.inst-page .form-eyebrow{font-family:'DM Mono',monospace;font-size:20px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500}
+.inst-page .form-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.8px}
+.inst-page .form-sub{font-size:14px;color:#8899AA;margin-bottom:32px;line-height:1.65;font-weight:300}
+.inst-page .form-sub strong{color:var(--gold2);font-weight:500}
+
+.inst-page .inst-form{display:flex;flex-direction:column;gap:20px}
+.inst-page .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.inst-page .field{display:flex;flex-direction:column;gap:6px}
+.inst-page .field label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#8899AA;font-weight:500}
+.inst-page .field label .req{color:var(--gold2);margin-left:2px}
+.inst-page .field input,.inst-page .field select,.inst-page .field textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.50);border-radius:var(--r);padding:13px 16px;font-size:14px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,background .2s;width:100%}
+.inst-page .field input:focus,.inst-page .field select:focus,.inst-page .field textarea:focus{border-color:var(--gold2);background:rgba(200,146,26,.05)}
+.inst-page .field input::placeholder,.inst-page .field textarea::placeholder{color:#445566}
+.inst-page .field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238899AA' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.inst-page .field select option{background:var(--navy2);color:#fff}
+.inst-page .field textarea{resize:vertical;min-height:120px;line-height:1.6}
+
+.inst-page .form-fee-reminder{background:rgba(200,146,26,.07);border:1px solid rgba(200,146,26,.2);border-radius:var(--r);padding:16px 20px;margin-bottom:4px}
+.inst-page .form-fee-reminder p{font-size:13px;color:var(--cream);line-height:1.65}
+.inst-page .form-fee-reminder strong{color:var(--gold2);font-weight:600}
+
+.inst-page .submit-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:'Inter',sans-serif;font-size:15px;font-weight:700;padding:16px 32px;border:none;border-radius:var(--r);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.inst-page .submit-btn:hover{background:linear-gradient(135deg,var(--gold2),var(--gold3));transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,146,26,.3)}
+.inst-page .form-disc{font-size:11px;color:#445566;text-align:center;line-height:1.6;margin-top:6px}
+
+/* SUCCESS STATE */
+.inst-page .success-msg{background:rgba(27,107,58,.1);border:1px solid rgba(27,107,58,.3);border-radius:12px;padding:32px;text-align:center}
+.inst-page .success-msg h3{font-family:'Cabinet Grotesk',sans-serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:10px}
+.inst-page .success-msg p{font-size:14px;color:#8899AA;line-height:1.7}
+.inst-page .success-msg strong{color:#5dba7d;font-weight:500}
+
+@media(max-width:900px){
+  .inst-page .inst-hero{padding:48px 20px 40px}
+  .inst-page .fee-badge{padding:22px 32px}
+  .inst-page .divider{margin:0 20px}
+  .inst-page .who-sec{padding:40px 20px;grid-template-columns:1fr}
+  .inst-page .karim-strip{padding:36px 20px}
+  .inst-page .karim-strip-inner{grid-template-columns:60px 1fr;gap:18px}
+  .inst-page .karim-avatar{width:60px;height:60px;font-size:22px}
+  .inst-page .form-sec{padding:48px 20px}
+  .inst-page .form-row{grid-template-columns:1fr}
+}
