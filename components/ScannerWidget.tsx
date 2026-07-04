@@ -23,6 +23,11 @@ const RANGES: { value: PriceRange; label: string; sub: string }[] = [
 
 const INTRO_KEY = "os_seen_intro";
 
+// Anonymous funnel gives 3 free picks, so at most 3 ranges can be selected —
+// one pick per range at the extreme. (Logged-in accounts get 5; that selector
+// lives on the dashboard.)
+const MAX_FREE_RANGES = 3;
+
 /** Reusable OpusEngine™ wordmark with the small superscript trademark. */
 function OpusEngine() {
   return (
@@ -173,9 +178,11 @@ export default function ScannerWidget() {
   }, []);
 
   function toggleRange(range: PriceRange) {
-    setSelectedRanges((prev) =>
-      prev.includes(range) ? prev.filter((r) => r !== range) : [...prev, range],
-    );
+    setSelectedRanges((prev) => {
+      if (prev.includes(range)) return prev.filter((r) => r !== range);
+      if (prev.length >= MAX_FREE_RANGES) return prev; // cap at the free-pick count
+      return [...prev, range];
+    });
     setScanned(false);
     setPicksNotPublished(false);
     setError(null);
@@ -300,23 +307,30 @@ export default function ScannerWidget() {
         </div>
 
         <div className="ranges" id="ranges">
-          {RANGES.map((r) => (
-            <button
-              key={r.value}
-              type="button"
-              className={`rb${selectedRanges.includes(r.value) ? " sel" : ""}`}
-              onClick={() => toggleRange(r.value)}
-              aria-pressed={selectedRanges.includes(r.value)}
-            >
-              <div className="rl">{r.label}</div>
-              <div className="rs">{r.sub}</div>
-            </button>
-          ))}
+          {RANGES.map((r) => {
+            const selected = selectedRanges.includes(r.value);
+            const capped = !selected && selectedRanges.length >= MAX_FREE_RANGES;
+            return (
+              <button
+                key={r.value}
+                type="button"
+                className={`rb${selected ? " sel" : ""}`}
+                onClick={() => toggleRange(r.value)}
+                aria-pressed={selected}
+                disabled={capped}
+                style={capped ? { opacity: 0.4, cursor: "not-allowed" } : undefined}
+                title={capped ? `You can pick up to ${MAX_FREE_RANGES} ranges` : undefined}
+              >
+                <div className="rl">{r.label}</div>
+                <div className="rs">{r.sub}</div>
+              </button>
+            );
+          })}
         </div>
         <div className="range-note">
-          Tap one or more ranges &mdash; your 3 picks are{" "}
-          <strong>spread across the ranges you select</strong>. Pick just one and
-          all 3 come from it. Select none to scan the mid-cap range.
+          Tap up to <strong>{MAX_FREE_RANGES} ranges</strong> &mdash; your 3 picks
+          are <strong>spread across the ranges you select</strong>. Pick just one
+          and all 3 come from it. Select none to scan the mid-cap range.
         </div>
 
         {showScanner && (
