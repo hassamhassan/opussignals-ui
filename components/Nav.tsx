@@ -100,15 +100,22 @@ export default function Nav() {
     <>
       {/* HEADER */}
       <header>
-        <div className="logo">
-          <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt="OpusSignals.com"
-              style={{ width: "150px", display: "block" }}
-              src="/OpusSignalLogo.png"
-            />
-          </Link>
+        <div className="nav-left">
+          <div className="logo">
+            <Link href="/">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                alt="OpusSignals.com"
+                style={{ width: "150px", display: "block" }}
+                src="/OpusSignalLogo.png"
+              />
+            </Link>
+          </div>
+          {/* Dashboard sits by the brand, not in the section nav — it's a
+              destination, not a page section, so it never shows an active bar. */}
+          {authed && (
+            <Link href="/dashboard" className="nav-dash">Dashboard</Link>
+          )}
         </div>
         <nav>
           <Link href="/#how-it-works" className={hashCls("/#how-it-works")}>How It Works</Link>
@@ -120,9 +127,7 @@ export default function Nav() {
           <Link href="/blog" className={cls("/blog")}>Blog</Link>
           <Link href="/institutional" className={cls("/institutional")}>Institutions</Link>
           <Link href="/contact" className={cls("/contact")}>Contact</Link>
-          {authed ? (
-            <Link href="/dashboard" className={cls("/dashboard")}>Dashboard</Link>
-          ) : (
+          {!authed && (
             <Link href="/login" className={cls("/login")}>Log in</Link>
           )}
           <Link href="/#pricing" className="ncta">Subscribe</Link>
@@ -148,7 +153,7 @@ export default function Nav() {
         <Link href="/institutional" onClick={closeMenu} className={cls("/institutional")}>Institutions</Link>
         <Link href="/contact" onClick={closeMenu} className={cls("/contact")}>Contact</Link>
         {authed ? (
-          <Link href="/dashboard" onClick={closeMenu} className={cls("/dashboard")}>Dashboard</Link>
+          <Link href="/dashboard" onClick={closeMenu}>Dashboard</Link>
         ) : (
           <Link href="/login" onClick={closeMenu} className={cls("/login")}>Log in</Link>
         )}
