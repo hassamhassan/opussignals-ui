@@ -190,6 +190,58 @@
   padding: 8px 2px;
 }
 
+/* ── Claim panel (free account, one-time) ── */
+.claim {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.claim-ranges {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.claim-rb {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--cream, #f8f3e8);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.claim-rb:hover:not(:disabled) {
+  border-color: rgba(200, 146, 26, 0.5);
+}
+
+.claim-rb.sel {
+  border-color: var(--gold2);
+  background: rgba(200, 146, 26, 0.12);
+}
+
+.claim-rb:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.claim-rl {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold2);
+}
+
+.claim-rs {
+  font-size: 11px;
+  color: var(--gray2);
+}
+
 /* ── Performance grid ── */
 .dash-perf-grid {
   display: grid;

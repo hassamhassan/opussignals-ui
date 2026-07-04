@@ -5,12 +5,83 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import type { Pick } from "@/lib/api";
+import type { Pick, PriceRange } from "@/lib/api";
 import { getToken, logout } from "@/lib/auth";
-import { fetchDashboard, type DashboardResponse } from "@/lib/user";
+import { claimPicks, fetchDashboard, type DashboardResponse } from "@/lib/user";
 import "./dashboard.css";
 
 const ACTIVE_STATUS = "active";
+
+// The 6 price ranges a free account can claim across.
+const CLAIM_RANGES: { value: PriceRange; label: string; sub: string }[] = [
+  { value: "$2-$5", label: "$2 – $5", sub: "Micro-cap momentum" },
+  { value: "$5-$10", label: "$5 – $10", sub: "Small-cap breakouts" },
+  { value: "$10-$20", label: "$10 – $20", sub: "Growth plays" },
+  { value: "$20-$50", label: "$20 – $50", sub: "Mid-cap movers" },
+  { value: "$50-$100", label: "$50 – $100", sub: "Blue chip setups" },
+  { value: "$100-$500", label: "$100 – $500", sub: "Premium leaders" },
+];
+
+/** One-time range picker for a free account to claim its 5 free picks. */
+function ClaimPanel({
+  maxRanges,
+  claiming,
+  error,
+  onClaim,
+}: {
+  maxRanges: number;
+  claiming: boolean;
+  error: string | null;
+  onClaim: (ranges: PriceRange[]) => void;
+}) {
+  const [selected, setSelected] = useState<PriceRange[]>([]);
+  const toggle = (r: PriceRange) =>
+    setSelected((prev) =>
+      prev.includes(r)
+        ? prev.filter((x) => x !== r)
+        : prev.length >= maxRanges
+          ? prev
+          : [...prev, r],
+    );
+  return (
+    <div className="claim">
+      <p className="dash-hint">
+        Pick up to <strong>{maxRanges} ranges</strong> and we&apos;ll assign your{" "}
+        <strong>{maxRanges} free picks</strong>, spread across the ranges you
+        choose. One-time choice &mdash; after this, new picks appear here
+        automatically.
+      </p>
+      <div className="claim-ranges">
+        {CLAIM_RANGES.map((r) => {
+          const sel = selected.includes(r.value);
+          const capped = !sel && selected.length >= maxRanges;
+          return (
+            <button
+              key={r.value}
+              type="button"
+              className={`claim-rb${sel ? " sel" : ""}`}
+              onClick={() => toggle(r.value)}
+              disabled={capped || claiming}
+              aria-pressed={sel}
+            >
+              <span className="claim-rl">{r.label}</span>
+              <span className="claim-rs">{r.sub}</span>
+            </button>
+          );
+        })}
+      </div>
+      {error && <div className="auth-error">{error}</div>}
+      <button
+        className="pbtn pri"
+        style={{ width: "auto", padding: "12px 24px" }}
+        disabled={selected.length === 0 || claiming}
+        onClick={() => onClaim(selected)}
+      >
+        {claiming ? "Claiming…" : `Get my ${maxRanges} free picks`}
+      </button>
+    </div>
+  );
+}
 
 /** Format ISO date (YYYY-MM-DD) as "Jun 15, 2026". */
 function fmtDate(iso: string): string {
@@ -108,6 +179,9 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const [claiming, setClaiming] = useState(false);
+  const [claimError, setClaimError] = useState<string | null>(null);
+
   const load = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -119,6 +193,30 @@ export default function DashboardPage() {
       setLoading(false);
     }
   }, []);
+
+  const handleClaim = useCallback(
+    async (ranges: PriceRange[]) => {
+      setClaiming(true);
+      setClaimError(null);
+      try {
+        const res = await claimPicks(ranges);
+        if (!res.claimed || res.picks.length === 0) {
+          setClaimError(
+            "Today's picks aren't published yet — check back shortly and claim then.",
+          );
+        } else {
+          await load(); // reload so the dashboard shows the claimed picks
+        }
+      } catch (err) {
+        setClaimError(
+          err instanceof Error ? err.message : "Could not claim your picks.",
+        );
+      } finally {
+        setClaiming(false);
+      }
+    },
+    [load],
+  );
 
   useEffect(() => {
     if (!getToken()) {
@@ -206,22 +304,34 @@ export default function DashboardPage() {
               </div>
             )}
 
-            {/* Picks */}
+            {/* Picks — free accounts claim once, then picks appear here */}
             <div className="dash-card">
               <h2>Your picks</h2>
-              <p className="dash-hint">
-                Every pick is time-stamped to its closing price on the day it was
-                published. Win or loss is determined after the hold window closes.
-              </p>
-              {data.picks.length === 0 ? (
-                <div className="dash-empty">
-                  No published picks right now. OpusEngine stays silent when no
-                  setup clears the conviction bar — check back soon.
-                </div>
+              {!isSubscriber && !data.claimed ? (
+                <ClaimPanel
+                  maxRanges={data.claim_max_ranges}
+                  claiming={claiming}
+                  error={claimError}
+                  onClaim={handleClaim}
+                />
               ) : (
-                data.picks.map((p) => (
-                  <PickRow key={`${p.pick_date}-${p.ticker}`} pick={p} />
-                ))
+                <>
+                  <p className="dash-hint">
+                    Every pick is time-stamped to its closing price on the day it
+                    was published. Win or loss is determined after the hold window
+                    closes.
+                  </p>
+                  {data.picks.length === 0 ? (
+                    <div className="dash-empty">
+                      No published picks right now. OpusEngine stays silent when no
+                      setup clears the conviction bar — check back soon.
+                    </div>
+                  ) : (
+                    data.picks.map((p) => (
+                      <PickRow key={`${p.pick_date}-${p.ticker}`} pick={p} />
+                    ))
+                  )}
+                </>
               )}
             </div>
 
