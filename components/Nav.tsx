@@ -80,34 +80,6 @@ export default function Nav() {
 
   return (
     <>
-      {/* BETA NOTICE BANNER */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 50,
-          background: "#142B45",
-          borderBottom: "1px solid rgba(200,146,26,.3)",
-          padding: "11px 20px",
-          textAlign: "center",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'Inter',sans-serif",
-            fontSize: "13.5px",
-            color: "#C2D2E0",
-            letterSpacing: ".2px",
-          }}
-        >
-          <span style={{ color: "#E5AA2A", fontWeight: 700 }}>Beta</span> &mdash;
-          the site is open for early testing now. Official launch is{" "}
-          <strong style={{ color: "#FFFFFF", fontWeight: 600 }}>
-            July 4, 2026
-          </strong>
-          .
-        </span>
-      </div>
-
       {/* HEADER */}
       <header>
         <div className="logo">
