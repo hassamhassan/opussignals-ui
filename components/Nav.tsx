@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { getToken } from "@/lib/auth";
 
 // Homepage anchor sections the nav can highlight while scrolling. Order here is
 // irrelevant — the scroll-spy sorts by real position (methodology actually sits
@@ -12,7 +13,24 @@ const SECTION_IDS = ["how-it-works", "methodology", "pricing"] as const;
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
+  // Whether a user is logged in — drives the "Log in" ↔ "Dashboard" swap. Read
+  // from localStorage only after mount (SSR renders logged-out to avoid a
+  // hydration mismatch); re-synced on route change, cross-tab storage events,
+  // and session expiry.
+  const [authed, setAuthed] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const sync = () => setAuthed(!!getToken());
+    sync();
+    const onExpired = () => setAuthed(false);
+    window.addEventListener("storage", sync);
+    window.addEventListener("os-session-expired", onExpired);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("os-session-expired", onExpired);
+    };
+  }, [pathname]);
 
   // Lock body scroll while the mobile nav is open.
   useEffect(() => {
@@ -102,7 +120,11 @@ export default function Nav() {
           <Link href="/blog" className={cls("/blog")}>Blog</Link>
           <Link href="/institutional" className={cls("/institutional")}>Institutions</Link>
           <Link href="/contact" className={cls("/contact")}>Contact</Link>
-          <Link href="/login" className={cls("/login")}>Log in</Link>
+          {authed ? (
+            <Link href="/dashboard" className={cls("/dashboard")}>Dashboard</Link>
+          ) : (
+            <Link href="/login" className={cls("/login")}>Log in</Link>
+          )}
           <Link href="/#pricing" className="ncta">Subscribe</Link>
         </nav>
         <button
@@ -125,7 +147,11 @@ export default function Nav() {
         <Link href="/blog" onClick={closeMenu} className={cls("/blog")}>Blog</Link>
         <Link href="/institutional" onClick={closeMenu} className={cls("/institutional")}>Institutions</Link>
         <Link href="/contact" onClick={closeMenu} className={cls("/contact")}>Contact</Link>
-        <Link href="/login" onClick={closeMenu} className={cls("/login")}>Log in</Link>
+        {authed ? (
+          <Link href="/dashboard" onClick={closeMenu} className={cls("/dashboard")}>Dashboard</Link>
+        ) : (
+          <Link href="/login" onClick={closeMenu} className={cls("/login")}>Log in</Link>
+        )}
       </nav>
     </>
   );
