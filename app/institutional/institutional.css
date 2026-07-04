@@ -7,7 +7,7 @@
 .inst-page .inst-hero{position:relative;z-index:2;padding:80px 60px 60px;max-width:900px;margin:0 auto;text-align:center}
 .inst-page .inst-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(200,146,26,.06) 0%,transparent 68%);pointer-events:none}
 .inst-page .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);background:rgba(200,146,26,.08);border:1px solid rgba(200,146,26,.2);padding:7px 16px;border-radius:20px;margin-bottom:28px}
-.inst-page .inst-hero h1{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(32px,5vw,50px);font-weight:500;color:var(--gold2);line-height:1.08;margin-bottom:20px;letter-spacing:-1.5px}
+.inst-page .inst-hero h1{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(32px,5vw,50px);font-weight:500;color:var(--gold2);line-height:1.08;margin-bottom:20px;letter-spacing:-1.5px;max-width:none}
 .inst-page .inst-hero h1 em{font-style:normal;color:#ffffff}
 .inst-page .inst-hero p{font-size:16px;color:#8899AA;line-height:1.8;max-width:680px;margin:0 auto 40px;font-weight:300}
 .inst-page .inst-hero p strong{color:var(--cream);font-weight:500}

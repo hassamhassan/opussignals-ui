@@ -3,7 +3,7 @@
 /* HERO */
 .faq-page .faq-hero{position:relative;z-index:1;padding:80px 60px 60px;max-width:900px;margin:0 auto;text-align:center}
 .faq-page .hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.faq-page .hero-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+.faq-page .hero-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;max-width:none}
 .faq-page .hero-title em{font-style:normal;color:var(--gold2)}
 .faq-page .hero-sub{font-size:16px;color:var(--gray2);line-height:1.8;max-width:600px;margin:0 auto}
 
