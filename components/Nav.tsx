@@ -127,9 +127,7 @@ export default function Nav() {
           <Link href="/blog" className={cls("/blog")}>Blog</Link>
           <Link href="/institutional" className={cls("/institutional")}>Institutions</Link>
           <Link href="/contact" className={cls("/contact")}>Contact</Link>
-          {!authed && (
-            <Link href="/login" className={cls("/login")}>Log in</Link>
-          )}
+          {/* TEMP: public sign-in hidden — no "Log in" link while auth is disabled. */}
           <Link href="/#pricing" className="ncta">Subscribe</Link>
         </nav>
         <button
@@ -152,10 +150,10 @@ export default function Nav() {
         <Link href="/blog" onClick={closeMenu} className={cls("/blog")}>Blog</Link>
         <Link href="/institutional" onClick={closeMenu} className={cls("/institutional")}>Institutions</Link>
         <Link href="/contact" onClick={closeMenu} className={cls("/contact")}>Contact</Link>
-        {authed ? (
+        {/* TEMP: "Log in" hidden while public auth is disabled; keep Dashboard for
+            users who are already signed in. */}
+        {authed && (
           <Link href="/dashboard" onClick={closeMenu}>Dashboard</Link>
-        ) : (
-          <Link href="/login" onClick={closeMenu} className={cls("/login")}>Log in</Link>
         )}
       </nav>
     </>

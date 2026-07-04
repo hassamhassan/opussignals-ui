@@ -1681,7 +1681,7 @@ export default function AboutPage() {
               <div className="tl-dot hi">&#128640;</div>
             </div>
             <div className="tl-content">
-              <div className="tl-date">July 4, 2026</div>
+              <div className="tl-date">July 2026</div>
               <div className="tl-title">OpusSignals.com — Live</div>
               <div className="tl-desc">
                 <strong>
@@ -1767,7 +1767,7 @@ export default function AboutPage() {
               Figure, 35+ years
             </div>
             <div>
-              <strong style={{ color: "#fff" }}>Launch Date:</strong> July 4, 2026
+              <strong style={{ color: "#fff" }}>Launch Date:</strong> July 2026
             </div>
             <div>
               <strong style={{ color: "#fff" }}>Track Record:</strong> $10,000

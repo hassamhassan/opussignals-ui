@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { login } from "@/lib/auth";
 import "./login.css";
 
 export default function LoginPage() {
+  // TEMP: public sign-in is disabled — the URL is hidden (returns 404) for now.
+  // Delete this line (and the `notFound` import) to re-enable the login page.
+  notFound();
+
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1002,9 +1002,10 @@ export default function HomePage() {
                   <span className="cx">✗</span>Access to other 5 price ranges
                 </li>
               </ul>
-              {/* TODO: wire Stripe checkout here later */}
+              {/* TEMP: public sign-up disabled — send buyers to Contact for now.
+                  Restore href="/signup" (and Stripe checkout) to re-enable. */}
               <Link
-                href="/signup"
+                href="/contact"
                 className="pbtn"
                 style={{ display: "block", textDecoration: "none" }}
               >
@@ -1047,9 +1048,10 @@ export default function HomePage() {
                   <span className="ck">&#10003;</span>14-day money-back guarantee
                 </li>
               </ul>
-              {/* TODO: wire Stripe checkout here later */}
+              {/* TEMP: public sign-up disabled — send buyers to Contact for now.
+                  Restore href="/signup" (and Stripe checkout) to re-enable. */}
               <Link
-                href="/signup"
+                href="/contact"
                 className="pbtn pri"
                 style={{ display: "block", textDecoration: "none" }}
               >
