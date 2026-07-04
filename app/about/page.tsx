@@ -1811,8 +1811,8 @@ export default function AboutPage() {
             >
               In 2013, Karim Pirani publicly documented every trade before
               execution on Seeking Alpha, turning $10,000 into over $1 million in
-              six months. OpusSignals.com, launching July 4, 2026, codifies that
-              same methodology into an automated signal service.
+              six months. OpusSignals.com codifies that same methodology into an
+              automated signal service.
             </p>
           </div>
 

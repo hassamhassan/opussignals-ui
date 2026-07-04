@@ -66,13 +66,12 @@ function PreScanIntro({ onProceed }: { onProceed: () => void }) {
           <span className="intro-karim">A Quick Word From Karim</span>
         </h3>
         <p className="intro-body">
-          OpusSignals.com officially launches{" "}
-          <strong>July 4, 2026</strong>. But our{" "}
+          Our{" "}
           <strong>
             <OpusEngine />
           </strong>{" "}
-          is already live and scanning &mdash; so we&apos;ve decided to open
-          up the kimono a little early, on a limited test basis.
+          is live and scanning the market right now &mdash; and we only speak
+          when the conviction is very high.
         </p>
         <p className="intro-body">
           The 3 picks you&apos;re about to see are{" "}
@@ -81,12 +80,12 @@ function PreScanIntro({ onProceed }: { onProceed: () => void }) {
           close.
         </p>
         <div className="intro-badge">
-          <span className="intro-cal">📅</span>
-          Test Basis &mdash; Ahead of July 4th Launch
+          <span className="intro-cal">&#10003;</span>
+          Live &mdash; Real High-Conviction Picks
         </div>
         <blockquote className="intro-quote">
           &ldquo;We only speak when we have very high conviction. Today,
-          we&apos;re speaking early.&rdquo;
+          we&apos;re speaking.&rdquo;
         </blockquote>
         <button type="button" className="scanbtn" onClick={onProceed}>
           Show Me My 3 Picks &rarr;
