@@ -234,7 +234,7 @@ export default function ScannerWidget() {
   }
 
   function handleScan() {
-    if (selectedRanges.length === 0) return; // must choose at least one range
+    if (selectedRanges.length !== MAX_FREE_RANGES) return; // must choose all 3 ranges
     // Show the intro modal on the very first scan (once per session).
     if (!pendingScanRef.current && typeof sessionStorage !== "undefined" && !sessionStorage.getItem(INTRO_KEY)) {
       setShowIntro(true);
@@ -293,12 +293,13 @@ export default function ScannerWidget() {
           &#9656; Live Scanner &mdash; OpusEngine
           <sup style={{ fontSize: "10px", fontWeight: 100 }}>TM</sup>
         </div>
-        <h2>Select Your Price Range(s)</h2>
+        <h2>Select Your 3 Price Ranges</h2>
         <p>
-          Choose one or more ranges you like to trade within &mdash; from
-          micro-cap momentum at $2&ndash;$5 to premium leaders at
-          $100&ndash;$500. <OpusEngine /> scans the Russell 2000 + S&amp;P 500
-          across your selected ranges and spreads your 3 free picks across them.
+          Pick <strong>{MAX_FREE_RANGES} ranges</strong> you like to trade within
+          &mdash; from micro-cap momentum at $2&ndash;$5 to premium leaders at
+          $100&ndash;$500. <OpusEngine /> scans the Russell 2000 + S&amp;P 500 and
+          returns <strong>one high-conviction pick from each</strong> &mdash; your
+          3 free picks.
         </p>
 
         <div className="free-badge">
@@ -328,10 +329,9 @@ export default function ScannerWidget() {
           })}
         </div>
         <div className="range-note">
-          Tap up to <strong>{MAX_FREE_RANGES} ranges</strong> &mdash; your 3 picks
-          are <strong>spread across the ranges you select</strong>. Pick just one
-          and all 3 come from it. <strong>Select at least one range</strong> to run
-          your scan.
+          <strong>Select all {MAX_FREE_RANGES} ranges</strong> to unlock your{" "}
+          <strong>3 free picks</strong> &mdash; one high-conviction pick from each
+          range you choose.
         </div>
 
         {showScanner && (
@@ -340,9 +340,17 @@ export default function ScannerWidget() {
               type="button"
               className="scanbtn"
               onClick={handleScan}
-              disabled={loading || selectedRanges.length === 0}
-              title={selectedRanges.length === 0 ? "Select at least one price range first" : undefined}
-              style={selectedRanges.length === 0 ? { opacity: 0.5, cursor: "not-allowed" } : undefined}
+              disabled={loading || selectedRanges.length !== MAX_FREE_RANGES}
+              title={
+                selectedRanges.length !== MAX_FREE_RANGES
+                  ? `Select all ${MAX_FREE_RANGES} ranges first`
+                  : undefined
+              }
+              style={
+                selectedRanges.length !== MAX_FREE_RANGES
+                  ? { opacity: 0.5, cursor: "not-allowed" }
+                  : undefined
+              }
             >
               <svg
                 width="16"
