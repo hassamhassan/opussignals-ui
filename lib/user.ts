@@ -62,10 +62,9 @@ export interface GuaranteeStatus {
 export interface DashboardResponse {
   account: DashboardAccount;
   picks: Pick[];
-  /** False only for a free account that hasn't claimed its picks yet. */
+  /** False only for a free account whose picks aren't published yet (so nothing
+   * has been snapshotted). Picks are locked in automatically — no manual claim. */
   claimed: boolean;
-  /** Max ranges a free account may pick when claiming. */
-  claim_max_ranges: number;
   performance: PerformanceResponse;
   guarantee: GuaranteeStatus;
   credits: DashboardCredit[];
@@ -77,29 +76,6 @@ export async function fetchDashboard(signal?: AbortSignal): Promise<DashboardRes
   const res = await authedFetch(`${API_BASE}/api/v1/dashboard`, { signal });
   if (!res.ok) throw new Error(`Could not load your dashboard (HTTP ${res.status}).`);
   return (await res.json()) as DashboardResponse;
-}
-
-/** POST /api/v1/dashboard/claim response (app/schemas/dashboard.py::ClaimResponse). */
-export interface ClaimResponse {
-  claimed: boolean;
-  picks: Pick[];
-}
-
-/** Claim a free account's picks across the chosen ranges (one-time). */
-export async function claimPicks(ranges: PriceRange[]): Promise<ClaimResponse> {
-  const res = await authedFetch(`${API_BASE}/api/v1/dashboard/claim`, {
-    method: "POST",
-    body: { ranges },
-  });
-  if (res.status === 400) {
-    const detail = await res
-      .json()
-      .then((d: { detail?: string }) => d.detail)
-      .catch(() => null);
-    throw new Error(detail || "Could not claim your picks.");
-  }
-  if (!res.ok) throw new Error(`Could not claim your picks (HTTP ${res.status}).`);
-  return (await res.json()) as ClaimResponse;
 }
 
 // ── Checkout (mirror of app/schemas/checkout.py) ────────────────────────────
