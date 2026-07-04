@@ -259,7 +259,7 @@ export default function ScannerWidget() {
     <>
       {showIntro && <PreScanIntro onProceed={handleIntroProceed} />}
 
-      <div className="widget">
+      <div className="widget" id="free-picks">
         <div className="wlabel">
           &#9656; Live Scanner &mdash; OpusEngine
           <sup style={{ fontSize: "10px", fontWeight: 100 }}>TM</sup>

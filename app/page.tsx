@@ -907,7 +907,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <a href="#ranges" className="conf-cta">
+          <a href="#free-picks" className="conf-cta">
             Get Your 3 Free Picks Now &rarr;
           </a>
         </div>

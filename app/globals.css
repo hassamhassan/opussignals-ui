@@ -47,7 +47,7 @@ h1 em{font-style:normal;color:var(--gold2)}
 .hero-reveal.show{opacity:1;transition:opacity 1.5s ease}
 
 /* ── SCANNER WIDGET ── */
-.widget{margin:auto; background:rgba(22,36,56,.93);border:1px solid rgba(200,146,26,.22);border-radius:16px;padding:38px 44px;max-width:660px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.5);animation:fu .6s ease .3s both;position:relative;overflow:hidden}
+.widget{margin:auto; scroll-margin-top:100px; background:rgba(22,36,56,.93);border:1px solid rgba(200,146,26,.22);border-radius:16px;padding:38px 44px;max-width:660px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.5);animation:fu .6s ease .3s both;position:relative;overflow:hidden}
 .widget::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
 .wlabel{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);margin-bottom:14px;font-weight:500}
 .widget h2{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}

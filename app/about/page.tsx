@@ -2002,7 +2002,7 @@ export default function AboutPage() {
           3 high-conviction picks, completely free — no email, no credit card.
           Watch them over 10 full trading sessions. Then decide.
         </p>
-        <Link href="/" className="cta-btn">
+        <Link href="/#free-picks" className="cta-btn">
           Get My 3 Free Picks →
         </Link>
       </div>
