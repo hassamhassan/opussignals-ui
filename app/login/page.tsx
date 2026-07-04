@@ -77,7 +77,7 @@ export default function LoginPage() {
 
           <div className="auth-alt">
             Don&apos;t have an account?{" "}
-            <Link href="/signup">Get 3 free picks →</Link>
+            <Link href="/signup">Register →</Link>
           </div>
         </div>
       </div>
