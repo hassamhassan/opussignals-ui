@@ -110,6 +110,24 @@ function PicksNotPublished({ pickDate }: { pickDate?: string }) {
   );
 }
 
+/** Shown after the free picks are used, while the proof window is running.
+ *  The server stops serving picks here — the 2 follow-up picks arrive via email
+ *  once the window closes. */
+function AwaitingWindow({ remaining }: { remaining: number }) {
+  return (
+    <div className="calibrating">
+      <div className="cal-title">Your free picks are locked in</div>
+      <p className="cal-body">
+        You&apos;ve used your 3 free picks. Track how they perform &mdash; your 2
+        follow-up picks unlock in <strong>{remaining}</strong> full trading
+        session{remaining === 1 ? "" : "s"} (no weekends or holidays), then
+        we&apos;ll email them to you.
+      </p>
+      <div className="cal-badge">&#9656; &nbsp;Proof window in progress</div>
+    </div>
+  );
+}
+
 export default function ScannerWidget() {
   const [funnelState, setFunnelState] = useState<FunnelState>("free_picks");
   const [session, setSession] = useState<SessionStatus | null>(null);
@@ -174,11 +192,14 @@ export default function ScannerWidget() {
       setScanned(true);
 
       if (res.picks.length === 0) {
-        // The backend ran the scan but the admin hasn't published picks yet.
-        setPicksNotPublished(true);
         setPicks([]);
         setPickDate(null);
         setScanTimeLabel("");
+        // Empty picks in the free-picks window means the admin hasn't published
+        // yet. Empty in any later funnel state (proof window / gate / paywall)
+        // is the server enforcing the free cap — handled by the funnel UI, not
+        // the "not published" message.
+        setPicksNotPublished(res.funnel_state === "free_picks");
       } else {
         setPicks(res.picks);
         const date = res.picks[0]?.pick_date ?? null;
@@ -359,8 +380,20 @@ export default function ScannerWidget() {
           <PicksNotPublished pickDate={pickDate ?? undefined} />
         )}
 
+        {/* Free picks used — proof window running (server stops serving picks) */}
+        {scanned && !picksNotPublished && picks.length === 0 && showScanner &&
+          funnelState === "awaiting_sessions" && (
+            <AwaitingWindow
+              remaining={
+                session
+                  ? Math.max(session.sessions_total - session.sessions_used, 0)
+                  : 10
+              }
+            />
+          )}
+
         {/* Visit 1 results */}
-        {scanned && !picksNotPublished && showScanner && (
+        {scanned && picks.length > 0 && showScanner && (
           <div className="results on" id="results">
             <div className="rhead">
               <span className="rtitle">
@@ -376,26 +409,22 @@ export default function ScannerWidget() {
               </span>
             </div>
             <div id="picksList">
-              {picks.length > 0 ? (
-                picks.map((p, i) => (
-                  <div
-                    className="pick"
-                    key={`${p.ticker}-${p.rank}`}
-                    style={{ animationDelay: `${i * 0.08}s` }}
-                  >
-                    <span className="prank">#{p.rank}</span>
-                    <span className="pticker">{p.ticker}</span>
-                    <span className="pdesc">
-                      {p.pick_date
-                        ? `Closing Price ${formatPickDate(p.pick_date)}`
-                        : p.description || p.signal_badge}
-                    </span>
-                    <span className="psig">${p.price.toFixed(2)}</span>
-                  </div>
-                ))
-              ) : (
-                <PicksNotPublished />
-              )}
+              {picks.map((p, i) => (
+                <div
+                  className="pick"
+                  key={`${p.ticker}-${p.rank}`}
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <span className="prank">#{p.rank}</span>
+                  <span className="pticker">{p.ticker}</span>
+                  <span className="pdesc">
+                    {p.pick_date
+                      ? `Closing Price ${formatPickDate(p.pick_date)}`
+                      : p.description || p.signal_badge}
+                  </span>
+                  <span className="psig">${p.price.toFixed(2)}</span>
+                </div>
+              ))}
             </div>
             {picks.length > 0 && (
               <div className="snotice" id="snotice">
