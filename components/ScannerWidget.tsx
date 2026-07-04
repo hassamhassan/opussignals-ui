@@ -234,6 +234,7 @@ export default function ScannerWidget() {
   }
 
   function handleScan() {
+    if (selectedRanges.length === 0) return; // must choose at least one range
     // Show the intro modal on the very first scan (once per session).
     if (!pendingScanRef.current && typeof sessionStorage !== "undefined" && !sessionStorage.getItem(INTRO_KEY)) {
       setShowIntro(true);
@@ -329,7 +330,8 @@ export default function ScannerWidget() {
         <div className="range-note">
           Tap up to <strong>{MAX_FREE_RANGES} ranges</strong> &mdash; your 3 picks
           are <strong>spread across the ranges you select</strong>. Pick just one
-          and all 3 come from it. Select none to scan the mid-cap range.
+          and all 3 come from it. <strong>Select at least one range</strong> to run
+          your scan.
         </div>
 
         {showScanner && (
@@ -338,7 +340,9 @@ export default function ScannerWidget() {
               type="button"
               className="scanbtn"
               onClick={handleScan}
-              disabled={loading}
+              disabled={loading || selectedRanges.length === 0}
+              title={selectedRanges.length === 0 ? "Select at least one price range first" : undefined}
+              style={selectedRanges.length === 0 ? { opacity: 0.5, cursor: "not-allowed" } : undefined}
             >
               <svg
                 width="16"
