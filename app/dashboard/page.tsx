@@ -268,17 +268,16 @@ export default function DashboardPage() {
                     {isSubscriber ? "Subscriber" : "Free account"}
                   </span>
                   {account.is_admin && <span className="dash-badge gold">Admin</span>}
-                  {isSubscriber && ranges.length > 0 ? (
-                    ranges.map((r) => (
-                      <span key={r} className="dash-badge gold">
-                        {r}
-                      </span>
-                    ))
-                  ) : (
-                    <span className="dash-badge">
-                      {isSubscriber ? "All ranges" : "Free"}
-                    </span>
-                  )}
+                  {isSubscriber &&
+                    (ranges.length > 0 ? (
+                      ranges.map((r) => (
+                        <span key={r} className="dash-badge gold">
+                          {r}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="dash-badge">All ranges</span>
+                    ))}
                 </div>
               </div>
               <button className="dash-signout" onClick={() => void onSignOut()}>
