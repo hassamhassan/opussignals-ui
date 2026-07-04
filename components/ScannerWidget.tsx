@@ -7,26 +7,10 @@ import {
   submitLead,
   type FunnelState,
   type Pick,
-  type PriceRange,
   type SessionStatus,
 } from "@/lib/api";
 
-// The 6 scanner ranges: display label -> backend PriceRange value + subtitle.
-const RANGES: { value: PriceRange; label: string; sub: string }[] = [
-  { value: "$2-$5", label: "$2 – $5", sub: "Micro-cap momentum" },
-  { value: "$5-$10", label: "$5 – $10", sub: "Small-cap breakouts" },
-  { value: "$10-$20", label: "$10 – $20", sub: "Growth plays" },
-  { value: "$20-$50", label: "$20 – $50", sub: "Mid-cap movers" },
-  { value: "$50-$100", label: "$50 – $100", sub: "Blue chip setups" },
-  { value: "$100-$500", label: "$100 – $500", sub: "Premium leaders" },
-];
-
 const INTRO_KEY = "os_seen_intro";
-
-// Anonymous funnel gives 3 free picks, so at most 3 ranges can be selected —
-// one pick per range at the extreme. (Logged-in accounts get 5; that selector
-// lives on the dashboard.)
-const MAX_FREE_RANGES = 3;
 
 /** Reusable OpusEngine™ wordmark with the small superscript trademark. */
 function OpusEngine() {
@@ -135,7 +119,6 @@ function AwaitingWindow({ remaining }: { remaining: number }) {
 export default function ScannerWidget() {
   const [funnelState, setFunnelState] = useState<FunnelState>("free_picks");
   const [session, setSession] = useState<SessionStatus | null>(null);
-  const [selectedRanges, setSelectedRanges] = useState<PriceRange[]>([]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -176,23 +159,12 @@ export default function ScannerWidget() {
     };
   }, []);
 
-  function toggleRange(range: PriceRange) {
-    setSelectedRanges((prev) => {
-      if (prev.includes(range)) return prev.filter((r) => r !== range);
-      if (prev.length >= MAX_FREE_RANGES) return prev; // cap at the free-pick count
-      return [...prev, range];
-    });
-    setScanned(false);
-    setPicksNotPublished(false);
-    setError(null);
-  }
-
   async function doScan() {
     setLoading(true);
     setError(null);
     setPicksNotPublished(false);
     try {
-      const res = await runFreeScan(selectedRanges);
+      const res = await runFreeScan();
       setFunnelState(res.funnel_state);
       setSession(res.session);
       setScanned(true);
@@ -234,7 +206,6 @@ export default function ScannerWidget() {
   }
 
   function handleScan() {
-    if (selectedRanges.length !== MAX_FREE_RANGES) return; // must choose all 3 ranges
     // Show the intro modal on the very first scan (once per session).
     if (!pendingScanRef.current && typeof sessionStorage !== "undefined" && !sessionStorage.getItem(INTRO_KEY)) {
       setShowIntro(true);
@@ -293,45 +264,17 @@ export default function ScannerWidget() {
           &#9656; Live Scanner &mdash; OpusEngine
           <sup style={{ fontSize: "10px", fontWeight: 100 }}>TM</sup>
         </div>
-        <h2>Select Your 3 Price Ranges</h2>
+        <h2>Today&apos;s 3 Free High-Conviction Picks</h2>
         <p>
-          Pick <strong>{MAX_FREE_RANGES} ranges</strong> you like to trade within
-          &mdash; from micro-cap momentum at $2&ndash;$5 to premium leaders at
-          $100&ndash;$500. <OpusEngine /> scans the Russell 2000 + S&amp;P 500 and
-          returns <strong>one high-conviction pick from each</strong> &mdash; your
-          3 free picks.
+          <OpusEngine /> scans the Russell 2000 + S&amp;P 500 across every price
+          range and only speaks when conviction is very high. Run your free scan
+          to see <strong>3 of today&apos;s high-conviction picks</strong> &mdash;
+          no selection needed.
         </p>
 
         <div className="free-badge">
           &#10003; &nbsp;3 Free Picks &middot; No Email &middot; No Credit
           Card &middot; No Catch
-        </div>
-
-        <div className="ranges" id="ranges">
-          {RANGES.map((r) => {
-            const selected = selectedRanges.includes(r.value);
-            const capped = !selected && selectedRanges.length >= MAX_FREE_RANGES;
-            return (
-              <button
-                key={r.value}
-                type="button"
-                className={`rb${selected ? " sel" : ""}`}
-                onClick={() => toggleRange(r.value)}
-                aria-pressed={selected}
-                disabled={capped}
-                style={capped ? { opacity: 0.4, cursor: "not-allowed" } : undefined}
-                title={capped ? `You can pick up to ${MAX_FREE_RANGES} ranges` : undefined}
-              >
-                <div className="rl">{r.label}</div>
-                <div className="rs">{r.sub}</div>
-              </button>
-            );
-          })}
-        </div>
-        <div className="range-note">
-          <strong>Select all {MAX_FREE_RANGES} ranges</strong> to unlock your{" "}
-          <strong>3 free picks</strong> &mdash; one high-conviction pick from each
-          range you choose.
         </div>
 
         {showScanner && (
@@ -340,17 +283,7 @@ export default function ScannerWidget() {
               type="button"
               className="scanbtn"
               onClick={handleScan}
-              disabled={loading || selectedRanges.length !== MAX_FREE_RANGES}
-              title={
-                selectedRanges.length !== MAX_FREE_RANGES
-                  ? `Select all ${MAX_FREE_RANGES} ranges first`
-                  : undefined
-              }
-              style={
-                selectedRanges.length !== MAX_FREE_RANGES
-                  ? { opacity: 0.5, cursor: "not-allowed" }
-                  : undefined
-              }
+              disabled={loading}
             >
               <svg
                 width="16"
@@ -422,12 +355,7 @@ export default function ScannerWidget() {
           <div className="results on" id="results">
             <div className="rhead">
               <span className="rtitle">
-                &#9656; High-Conviction Picks &mdash;{" "}
-                <span id="rangeDisplay">
-                  {selectedRanges.length > 0
-                    ? selectedRanges.join(" · ")
-                    : "Today's 3 High-Conviction Picks"}
-                </span>
+                &#9656; Today&apos;s 3 High-Conviction Picks
               </span>
               <span className="rbadge" id="scanTime">
                 {scanTimeLabel}
