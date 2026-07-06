@@ -320,7 +320,7 @@ export default function InstitutionalPage() {
               </svg>
               Submit Inquiry
             </button>
-            <div className="form-disc" style={{ color: "#8899AA" }}>
+            <div className="form-disc" style={{ color: "var(--gray2)" }}>
               By submitting this form you confirm you are an accredited investor or
               a qualified institutional buyer. Karim personally reviews all
               requests and will respond within 2 business days.

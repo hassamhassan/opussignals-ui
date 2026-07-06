@@ -352,7 +352,7 @@ export default function ScannerWidget() {
               borderRadius: "8px",
               padding: "12px 16px",
               fontSize: "13px",
-              color: "#e07070",
+              color: "var(--red-light)",
               lineHeight: 1.55,
             }}
             role="alert"
@@ -434,7 +434,7 @@ export default function ScannerWidget() {
                     paddingTop: "12px",
                     borderTop: "1px solid rgba(200,146,26,.15)",
                     fontSize: "12px",
-                    color: "#8A99AE",
+                    color: "var(--gray2)",
                   }}
                 >
                   OpusEngine&trade; identifies stocks that are showing signs

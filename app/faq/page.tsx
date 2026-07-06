@@ -615,7 +615,7 @@ export default function FaqPage() {
           <p
             style={{
               fontSize: "13px",
-              color: "#8A99AE",
+              color: "var(--gray2)",
               fontStyle: "italic",
             }}
           >
