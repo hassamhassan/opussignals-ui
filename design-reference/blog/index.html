@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — Point & Figure Charting & Options Trading | OpusSignals</title>
+<meta name="description" content="The OpusSignals blog — deep dives on Point & Figure charting, options trading methodology, and the OpusEngine™ approach to high-conviction stock picks by Karim Pirani."/>
+<link rel="canonical" href="https://opussignals.com/blog/"/>
+<link rel="icon" type="image/png" href="https://opussignals.com/OpusSignalLogo.png"/>
+<link rel="apple-touch-icon" href="https://opussignals.com/OpusSignalLogo.png"/>
+<meta property="og:title" content="Blog — Point & Figure Charting & Options Trading | OpusSignals"/>
+<meta property="og:description" content="Deep dives on Point & Figure charting, options trading methodology, and OpusEngine™ stock picks by Karim Pirani."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://opussignals.com/blog/"/>
+<meta property="og:site_name" content="OpusSignals.com"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "OpusSignals Blog",
+  "description": "Deep dives on Point & Figure charting, options trading methodology, and OpusEngine™ stock picks by Karim Pirani.",
+  "url": "https://opussignals.com/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OpusSignals.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://opussignals.com/OpusSignalLogo.png"
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Karim Pirani",
+    "url": "https://opussignals.com/karim-pirani.html"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --navy:#0D1B2E;--navy2:#0A1628;
+    --gold:#C8921A;--gold2:#E5AA2A;
+    --gray:#8A99AE;--light:#C2D2E0;--white:#F8F3E8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--navy2);color:var(--white);font-family:'Inter',sans-serif;line-height:1.7}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid rgba(200,146,26,.15);position:sticky;top:0;z-index:100;background:var(--navy2)}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  nav{display:flex;gap:28px;align-items:center}
+  nav a{color:var(--light);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.3px;transition:color .2s}
+  nav a:hover,nav a.active{color:var(--gold2)}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+  .mobile-nav{display:none;flex-direction:column;gap:24px;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy2);z-index:200;padding:80px 40px 40px;align-items:flex-start}
+  .mobile-nav a{font-size:22px;font-weight:600;color:#fff;text-decoration:none}
+  .mobile-close{position:absolute;top:24px;right:28px;font-size:28px;cursor:pointer;color:var(--gray)}
+  @media(max-width:900px){nav{display:none}.hamburger{display:flex}}
+  .beta-bar{background:#142B45;padding:10px 20px;text-align:center;font-size:13px;color:var(--light)}
+  .beta-bar strong{color:var(--gold)}
+  .blog-hero{text-align:center;padding:72px 24px 56px;border-bottom:1px solid rgba(200,146,26,.12)}
+  .blog-eyebrow{font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+  .blog-title{font-family:'Georgia',serif;font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);margin-bottom:16px;line-height:1.2}
+  .blog-sub{font-size:16px;color:var(--gray);max-width:560px;margin:0 auto}
+  .blog-grid{max-width:900px;margin:0 auto;padding:64px 24px 100px;display:grid;gap:32px}
+  .post-card{background:rgba(13,27,46,.6);border:1px solid rgba(200,146,26,.18);border-radius:12px;padding:36px 40px;text-decoration:none;display:block;transition:border-color .2s,background .2s}
+  .post-card:hover{border-color:rgba(200,146,26,.5);background:rgba(13,27,46,.85)}
+  .post-meta{font-size:12px;color:var(--gray);margin-bottom:12px;display:flex;gap:16px}
+  .post-tag{color:var(--gold);font-weight:500}
+  .post-title{font-family:'Georgia',serif;font-size:24px;font-weight:400;color:var(--white);margin-bottom:12px;line-height:1.35}
+  .post-excerpt{font-size:15px;color:var(--light);line-height:1.7;margin-bottom:20px}
+  .post-read{font-size:13px;color:var(--gold2);font-weight:500;display:flex;align-items:center;gap:6px}
+  .coming-card{border:1px dashed rgba(200,146,26,.2);border-radius:12px;padding:36px 40px;opacity:.5}
+  footer{border-top:1px solid rgba(200,146,26,.15);padding:40px}
+  .fbot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .fcopy{font-size:12px;color:var(--gray)}
+  .flinks{display:flex;gap:18px;flex-wrap:wrap}
+  .flinks a{font-size:11px;color:var(--gray);text-decoration:none;transition:color .2s}
+  .flinks a:hover{color:var(--gold2)}
+</style>
+</head>
+<body>
+
+<div class="beta-bar"><strong>Beta</strong> &mdash; launching <strong>July 4, 2026</strong>.</div>
+
+<header>
+  <a href="/" class="logo">
+    <img alt="OpusSignals.com" style="width:150px;display:block" src="https://opussignals.com/OpusSignalLogo.png" onerror="this.outerHTML='&lt;span style=&quot;font-family:Inter,sans-serif;font-size:18px;font-weight:700&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;Opus&lt;/span&gt;&lt;span style=&quot;color:#C8921A&quot;&gt;Signals&lt;/span&gt;&lt;span style=&quot;color:#8A99AE;font-size:14px&quot;&gt;.com&lt;/span&gt;&lt;/span&gt;'">
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/karim-pirani.html">About</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/institutional.html">Institutions</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <span class="mobile-close" onclick="closeMobileNav()">&times;</span>
+  <a href="/" onclick="closeMobileNav()">Home</a>
+  <a href="/karim-pirani.html" onclick="closeMobileNav()">About</a>
+  <a href="/faq.html" onclick="closeMobileNav()">FAQ</a>
+  <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+  <a href="/institutional.html" onclick="closeMobileNav()">Institutions</a>
+  <a href="/contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<div class="blog-hero">
+  <div class="blog-eyebrow">The OpusSignals Blog</div>
+  <h1 class="blog-title">Methodology. Markets. Conviction.</h1>
+  <p class="blog-sub">Deep dives on Point &amp; Figure charting, options trading, and the OpusEngine&trade; approach to finding high-conviction stock picks &mdash; by Karim Pirani.</p>
+</div>
+
+<div class="blog-grid">
+
+  <!-- Article 1 — LIVE -->
+  <a href="/blog/what-is-point-and-figure-charting.html" class="post-card">
+    <div class="post-meta">
+      <span class="post-tag">Education &middot; Methodology</span>
+      <span>June 27, 2026</span>
+      <span>8 min read</span>
+    </div>
+    <div class="post-title">What Is Point &amp; Figure Charting &mdash; And Why Most Traders Have Never Heard of It</div>
+    <p class="post-excerpt">P&amp;F charting has been around for over 100 years. It removes time from the chart entirely, filters noise, and shows only meaningful price movement. Here&rsquo;s why it remains one of the most powerful &mdash; and most overlooked &mdash; methodologies available to stock and options traders.</p>
+    <div class="post-read">Read article &rarr;</div>
+  </a>
+
+  <!-- Article 2 — AAPL Call — LIVE -->
+  <a href="/blog/apple-bull-run-2013.html" class="post-card">
+    <div class="post-meta">
+      <span class="post-tag">Case Study &middot; AAPL</span>
+      <span>July 5, 2026</span>
+      <span>7 min read</span>
+    </div>
+    <div class="post-title">How a Point &amp; Figure Chart Predicted Apple&rsquo;s Greatest Bull Run Before Wall Street Saw It</div>
+    <p class="post-excerpt">In July 2013, with AAPL trading around $385&ndash;$440 and largely out of favor, I documented a Bearish Resistance Line pierce publicly on Seeking Alpha and projected a move well past $700. What followed was one of Apple&rsquo;s most powerful multi-year bull runs &mdash; the original charts, the timestamped posts, and today&rsquo;s split-adjusted math, all verified.</p>
+    <div class="post-read">Read article &rarr;</div>
+  </a>
+
+  <!-- Article 3 — $10K → $1M+ -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Track Record</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">My $10K &rarr; $1M+: How I Turned $10,000 into $1,074,475 in 6 Months &mdash; Every Trade Documented Before Execution</div>
+    <p class="post-excerpt">The full story of the 2013 Options2Wealth experiment on Seeking Alpha &mdash; the methodology, the trades, the timeline, and the verified public record of every call made before execution.</p>
+  </div>
+
+  <!-- Article 4 — Sprint -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Case Study</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">My Sprint Call: How I Identified a Cup &amp; Handle Breakout 2 Months Before It Happened</div>
+    <p class="post-excerpt">On February 17, 2013, I posted a Cup &amp; Handle analysis on Sprint publicly before entering a position. On April 15, the breakout happened exactly as described. Here&rsquo;s the full trade &mdash; entry, rationale, exit, and what the P&amp;F chart was showing that most traders missed.</p>
+  </div>
+
+  <!-- Article 5 — OpusEngine Scanning -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Methodology</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">How OpusEngine&trade; Scans Every Stock in the Russell 3000 for the One Signal That Matters</div>
+    <p class="post-excerpt">A look inside the scanning methodology &mdash; how OpusEngine&trade; works through all 3,000 stocks in the Russell 3000, what it filters for, and why small-cap signals are where the real opportunity consistently emerges.</p>
+  </div>
+
+  <!-- Article 6 — Golden Cross -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Education &middot; Contrarian</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">The Golden Cross: What Most Traders Get Completely Wrong About It</div>
+    <p class="post-excerpt">The Golden Cross is one of the most searched technical signals in existence. It&rsquo;s also one of the most misunderstood. Here&rsquo;s what the standard interpretation misses &mdash; and how P&amp;F context changes everything about when a Golden Cross actually means something.</p>
+  </div>
+
+  <!-- Article 7 — Long Only -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Philosophy &middot; Risk</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">Why I Only Trade Long &mdash; And What That Tells You About Real Risk Management</div>
+    <p class="post-excerpt">A long-only discipline isn&rsquo;t a limitation &mdash; it&rsquo;s a philosophy. After 35 years of trading, here&rsquo;s why removing short exposure from the equation produces better results, cleaner thinking, and a fundamentally different relationship with risk.</p>
+  </div>
+
+  <!-- Article 8 — Options Aren't Risky -->
+  <div class="coming-card">
+    <div class="post-meta">
+      <span class="post-tag">Options Education</span>
+      <span>Coming July 2026</span>
+    </div>
+    <div class="post-title">Why Options Aren&rsquo;t as Risky as You Think &mdash; If You Know What You&rsquo;re Looking For</div>
+    <p class="post-excerpt">The reputation of options as inherently dangerous instruments is a myth &mdash; one that keeps most investors away from one of the most powerful tools available. Here&rsquo;s what changes when you apply a proven methodology before entering a position.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fbot">
+    <div class="fcopy">&copy; 2026 OpusSignals.com &mdash; All rights reserved.</div>
+    <div class="flinks">
+      <a href="https://www.karimpirani.com" target="_blank" rel="noopener">Karim Pirani</a>
+      <a href="https://www.investorchatter.com" target="_blank" rel="noopener">InvestorChatter</a>
+      <a href="https://www.ibbq.com" target="_blank" rel="noopener">iBBQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openMobileNav(){document.getElementById('mobileNav').style.display='flex'}
+function closeMobileNav(){document.getElementById('mobileNav').style.display='none'}
+</script>
+
+</body>
+</html>
