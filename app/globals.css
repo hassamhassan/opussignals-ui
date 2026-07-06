@@ -55,7 +55,7 @@ h1 em{font-style:normal;color:var(--gold2)}
 .free-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(27,107,58,.18);border:1px solid rgba(27,107,58,.35);color:#5dba7d;font-size:11px;font-weight:600;padding:5px 12px;border-radius:4px;margin-bottom:20px;font-family:'DM Mono',monospace;letter-spacing:.5px}
 
 /* RANGES */
-.ranges{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:24px}
+.ranges{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:24px}
 .rb{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:13px 8px;text-align:center;cursor:pointer;transition:all .18s;font-family:'Inter',sans-serif;color:var(--cream)}
 .rb:hover{border-color:var(--gold2);background:rgba(200,146,26,.08);color:var(--gold2);transform:translateY(-1px)}
 .rb.sel{border-color:var(--gold2);background:rgba(200,146,26,.15);color:var(--gold2)}

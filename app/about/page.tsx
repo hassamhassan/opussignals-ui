@@ -359,7 +359,7 @@ export default function AboutPage() {
           <em>Bets on the Upside</em>
         </h2>
         <p className="bio-p">
-          Karim Pirani has been reading stock charts for over 35 years — long
+          Karim Pirani has been reading stock charts for over 25 years — long
           before algorithmic trading, long before machine learning, long before
           anyone was talking about AI-powered screeners. His edge was built the
           old-fashioned way: sitting with charts, learning to see patterns that
@@ -377,11 +377,11 @@ export default function AboutPage() {
         </p>
         <div className="bio-quote">
           <p>
-            &quot;After 35 years of reading P&amp;F charts along with other market
+            &quot;After 25+ years of reading P&amp;F charts along with other market
             signals, you develop a feel for which setups have genuine conviction
             behind them and which ones are noise. <OE /> is that instinct,
             structured. When I see a pick that clears every layer of my methodology
-            honed over 35+ years, I have very high confidence. When I don&apos;t —
+            honed over 25+ years, I have very high confidence. When I don&apos;t —
             I won&apos;t share a pick for the sake of sharing. That patience is the
             edge.&quot;
           </p>
@@ -419,7 +419,7 @@ export default function AboutPage() {
           strips away time and focuses purely on price movement. P&amp;F charts
           filter out the noise that confuses most technical analysts and reveal the
           underlying supply and demand dynamics of a stock with unusual clarity.
-          Over 35+ years, Karim has developed an intuitive mastery of P&amp;F
+          Over 25+ years, Karim has developed an intuitive mastery of P&amp;F
           patterns that forms the foundation of every trade decision he makes.
         </p>
         <p className="bio-p">
@@ -1328,7 +1328,7 @@ export default function AboutPage() {
         <h2 className="section-title">
           Systematizing
           <br />
-          <em>35 Years of Instinct</em>
+          <em>25+ Years of P&amp;F Instinct</em>
         </h2>
         <p className="bio-p">
           The Options2Wealth experiment proved something Karim had always believed:
@@ -1339,10 +1339,10 @@ export default function AboutPage() {
           analyst could monitor at once.
         </p>
         <p className="bio-p">
-          <OE /> is the answer to that question. It encodes 35+ years of pattern
-          recognition, signal layering, and conviction scoring into an automated
+          <OE /> is the answer to that question. It encodes 25+ years of P&amp;F
+          pattern recognition, signal layering, and conviction scoring into an automated
           screening engine that scans the Russell 3000 and S&amp;P 500 —
-          approximately 2,500 stocks — and surfaces only the setups that meet
+          approximately 3,000 stocks — and surfaces only the setups that meet
           Karim&apos;s very high conviction standard.
         </p>
         <p className="bio-p">
@@ -1360,7 +1360,7 @@ export default function AboutPage() {
             entire library.{" "}
             <strong>
               When <OE /> identifies a Cup &amp; Handle today, it is drawing on the
-              same 35+ years of pattern recognition that called Sprint before it
+              same 25+ years of P&amp;F pattern recognition that called Sprint before it
               broke out.
             </strong>
           </p>
@@ -1373,7 +1373,7 @@ export default function AboutPage() {
       <div className="bio-section full">
         <div className="section-label">&#9656; The Journey</div>
         <h2 className="section-title">
-          35+ Years.
+          25+ Years.
           <br />
           <em>One Methodology.</em>
         </h2>
@@ -1553,7 +1553,7 @@ export default function AboutPage() {
               <div className="tl-date">1990s — 2000s</div>
               <div className="tl-title">Building the Signal Stack</div>
               <div className="tl-desc">
-                35+ years of layering RSI, DMA, volume analysis, Bollinger Bands,
+                25+ years of layering RSI, DMA, volume analysis, Bollinger Bands,
                 Cup &amp; Handle patterns, and market sentiment on top of P&amp;F
                 structure. The methodology that powers <OE /> today was built and
                 refined over this period through thousands of real trades.
@@ -1764,10 +1764,10 @@ export default function AboutPage() {
             </div>
             <div>
               <strong style={{ color: "#fff" }}>Methodology:</strong> Point &amp;
-              Figure, 35+ years
+              Figure, 25+ years
             </div>
             <div>
-              <strong style={{ color: "#fff" }}>Launch Date:</strong> July 2026
+              <strong style={{ color: "#fff" }}>Launch Date:</strong> Launched July 2026
             </div>
             <div>
               <strong style={{ color: "#fff" }}>Track Record:</strong> $10,000

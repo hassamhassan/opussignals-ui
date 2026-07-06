@@ -117,6 +117,8 @@ function AwaitingWindow({ remaining }: { remaining: number }) {
 }
 
 export default function ScannerWidget() {
+  const [selectedRange, setSelectedRange] = useState<string | null>(null);
+
   const [funnelState, setFunnelState] = useState<FunnelState>("free_picks");
   const [session, setSession] = useState<SessionStatus | null>(null);
 
@@ -264,12 +266,12 @@ export default function ScannerWidget() {
           &#9656; Live Scanner &mdash; OpusEngine
           <sup style={{ fontSize: "10px", fontWeight: 100 }}>TM</sup>
         </div>
-        <h2>Today&apos;s 3 Free High-Conviction Picks</h2>
+        <h2>Select Your Price Range</h2>
         <p>
-          <OpusEngine /> scans the Russell 3000 + S&amp;P 500 across every price
-          range and only speaks when conviction is very high. Run your free scan
-          to see <strong>3 of today&apos;s high-conviction picks</strong> &mdash;
-          no selection needed.
+          Select the range you like to trade within &mdash; from micro-cap
+          momentum at $1&ndash;$10 to premium leaders at $101 and up. <OpusEngine />{" "}
+          scans the Russell 3000 within your preferred range and surfaces its
+          highest-conviction pick for you.
         </p>
 
         <div className="free-badge">
@@ -279,6 +281,32 @@ export default function ScannerWidget() {
 
         {showScanner && (
           <>
+            <div className="ranges">
+              {(["$1 – $10", "$11 – $50", "$51 – $100", "$101 & up"] as const).map((range, i) => {
+                const labels = [
+                  { rl: "$1 \u2013 $10", rs: "Micro \u0026 small-cap momentum" },
+                  { rl: "$11 \u2013 $50", rs: "Growth \u0026 mid-cap movers" },
+                  { rl: "$51 \u2013 $100", rs: "Blue chip setups" },
+                  { rl: "$101 \u0026 up", rs: "Premium leaders" },
+                ][i];
+                return (
+                  <button
+                    key={range}
+                    type="button"
+                    className={`rb${selectedRange === range ? " sel" : ""}`}
+                    onClick={() => setSelectedRange(range)}
+                  >
+                    <div className="rl" dangerouslySetInnerHTML={{ __html: labels.rl }} />
+                    <div className="rs" dangerouslySetInnerHTML={{ __html: labels.rs }} />
+                  </button>
+                );
+              })}
+            </div>
+            <div className="range-note">
+              Your 3 free picks are drawn from <OpusEngine />&apos;s
+              highest-conviction setups across the full Russell 3000 universe.
+              Subscribe to receive picks filtered to your chosen range, delivered weekly.
+            </div>
             <button
               type="button"
               className="scanbtn"
@@ -312,7 +340,7 @@ export default function ScannerWidget() {
             <span></span>
             <span></span>
           </div>
-          Scanning 2,500+ stocks for high-conviction setups...
+          Scanning 3,000+ stocks for high-conviction setups...
         </div>
 
         {error && (
@@ -385,7 +413,7 @@ export default function ScannerWidget() {
                   These are your{" "}
                   <strong>3 free high-conviction picks</strong>. Track their
                   performance, then come back after{" "}
-                  <strong>5 full trading sessions</strong> &mdash; no
+                  <strong>10 full trading sessions</strong> &mdash; no
                   weekends, no holidays, no half-days &mdash; for{" "}
                   <strong>2 more picks, completely free</strong>. After that,
                   decide if you want to subscribe.
@@ -397,7 +425,7 @@ export default function ScannerWidget() {
                         session.sessions_total - session.sessions_used,
                         0,
                       )
-                    : 5}{" "}
+                    : 10}{" "}
                   full trading sessions
                 </div>
                 <p
@@ -489,7 +517,7 @@ export default function ScannerWidget() {
           <div className="paywall on" id="paywall">
             <div className="pw-title">You&apos;ve Seen What We Can Do</div>
             <p className="pw-sub">
-              5 free picks total &mdash; 3 today, 2 more after 5 trading
+              5 free picks total &mdash; 3 today, 2 more after 10 trading
               sessions. Now subscribe and let <OpusEngine /> find your{" "}
               <strong>next high-conviction opportunity</strong> every single
               week.
@@ -512,7 +540,7 @@ export default function ScannerWidget() {
                 <div className="pw-price">
                   <sup>$</sup>499
                 </div>
-                <div className="pw-name">All 6 Ranges</div>
+                <div className="pw-name">All 4 Ranges</div>
               </div>
             </div>
           </div>

@@ -65,7 +65,7 @@ export default function HomePage() {
               letterSpacing: "-.5px",
             }}
           >
-            Don&rsquo;t Trust Us &mdash; Test it Yourself.
+            Don&rsquo;t Trust Us &mdash; Test it for Free.
           </div>
 
           <div
@@ -79,7 +79,7 @@ export default function HomePage() {
               marginBottom: "28px",
             }}
           >
-            Less Noise &middot; More Conviction &middot; Powered by <OE />
+            No Name, Email or Credit Card Required for Your 3 Free Stock Picks.
           </div>
 
           <Link
@@ -160,7 +160,7 @@ export default function HomePage() {
 
         <p className="hsub">
           Most screeners flood you with picks. We don&apos;t. <OE /> scans{" "}
-          <strong>2,500+ stocks</strong> and surfaces a pick only when every
+          <strong>3,000+ stocks</strong> and surfaces a pick only when every
           layer confirms it.
         </p>
 
@@ -313,7 +313,7 @@ export default function HomePage() {
             <div className="about-name">Karim Pirani</div>
             <div className="about-title">Founder &amp; Architect</div>
             <div className="about-stat">
-              <div className="about-stat-num">35+</div>
+              <div className="about-stat-num">25+</div>
               <div className="about-stat-label">
                 Years reading
                 <br />
@@ -622,7 +622,7 @@ export default function HomePage() {
               <div className="mc">
                 <h4>Methodology Stays Proprietary</h4>
                 <p>
-                  35+ years of market analysis &mdash; distilled into one signal,
+                  25+ years of P&amp;F market analysis &mdash; distilled into one signal,
                   on each scan. The secret sauce stays ours.
                 </p>
               </div>
@@ -634,11 +634,11 @@ export default function HomePage() {
       {/* STATS */}
       <div className="stats">
         <div className="si">
-          <div className="sn">2,500+</div>
+          <div className="sn">3,000+</div>
           <div className="sl">Stocks Scanned Per Run</div>
         </div>
         <div className="si">
-          <div className="sn">35+</div>
+          <div className="sn">25+</div>
           <div className="sl">Years P&amp;F Expertise</div>
         </div>
         <div className="si">
@@ -667,7 +667,7 @@ export default function HomePage() {
                 3 high-conviction picks, completely free, no email, no credit
                 card.
               </strong>{" "}
-              Come back after 5 full trading sessions &mdash; real market days, no
+              Come back after 10 full trading sessions &mdash; real market days, no
               weekends, no holidays &mdash; for 2 more, on us. Then decide.
             </p>
           </div>
@@ -680,7 +680,7 @@ export default function HomePage() {
                 <div className="tl">Right Now</div>
                 <div className="tt">3 free high-conviction picks</div>
                 <div className="td">
-                  Selected by <OE /> from 2,500+ stocks. No email. No friction.{" "}
+                  Selected by <OE /> from 3,000+ stocks. No email. No friction.{" "}
                   <strong>Pure demonstration of quality.</strong>
                 </div>
               </div>
@@ -748,8 +748,8 @@ export default function HomePage() {
               <h3 className="stit">Choose Your Price Range</h3>
               <p className="sbod">
                 Select the range you trade &mdash; from micro-cap momentum at
-                $1&ndash;$10 to mid-cap movers at $101+. <OE /> scans
-                the <strong>Russell 3000 + S&amp;P 500</strong> within your range
+                $1&ndash;$10 to premium leaders at $101 and up. <OE /> scans
+                the <strong>Russell 3000</strong> within your range
                 exclusively.
               </p>
             </div>
@@ -788,7 +788,7 @@ export default function HomePage() {
         <div>
           <div className="qmark">&quot;</div>
           <p className="qtext">
-            After 35 years of reading P&amp;F charts in real markets, one
+            After 25+ years of reading P&amp;F charts in real markets, one
             develops a feel for which setups have genuine conviction behind them
             and which ones are noise. <OE /> is that instinct, structured. When I
             see a pick that clears every layer of the methodology, I have very
@@ -837,7 +837,7 @@ export default function HomePage() {
             <div className="mpc">
               <h4>Proprietary Methodology</h4>
               <p>
-                35+ years of market analysis &mdash; including RSI, DMA, volume,
+                25+ years of P&amp;F market analysis &mdash; including RSI, DMA, volume,
                 and overall market sentiment &mdash; have all been encoded in the{" "}
                 <OE /> methodology. You get the output. The secret sauce stays
                 ours.
@@ -860,7 +860,7 @@ export default function HomePage() {
             <br />
             That&apos;s not a marketing tactic. That&apos;s a statement of
             conviction. If we weren&apos;t absolutely certain of the quality, we
-            wouldn&apos;t do it. 35 years of reading these signals gives us
+            wouldn&apos;t do it. 25+ years of reading these signals gives us
             conviction.
           </p>
 
@@ -940,7 +940,7 @@ export default function HomePage() {
                   email)
                 </li>
                 <li>
-                  <span className="ck">&#10003;</span>2 more picks after 5 trading
+                  <span className="ck">&#10003;</span>2 more picks after 10 trading
                   sessions
                 </li>
                 <li>

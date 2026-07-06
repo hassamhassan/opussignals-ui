@@ -166,7 +166,7 @@ export default function FaqPage() {
                 </button>
               ) : (
                 <div className="cf-confirm">
-                  &#10003; Thanks — we&apos;ll be in touch. Karim will respond
+                  &#10003; Question received. Karim will respond
                   personally.
                 </div>
               )}
