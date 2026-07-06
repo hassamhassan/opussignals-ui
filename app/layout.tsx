@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
+
+// Google Analytics (gtag.js) — same GA4 property as the static marketing site
+// (design-reference/*.html) so app + landing pages report together.
+const GA_MEASUREMENT_ID = "G-KLVNNM8F3L";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://app.opussignals.com"),
@@ -29,6 +34,16 @@ export default function RootLayout({
         <link rel="icon" href="/OpusSignalLogo.png" />
       </head>
       <body>{children}</body>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga-init" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`}
+      </Script>
     </html>
   );
 }
