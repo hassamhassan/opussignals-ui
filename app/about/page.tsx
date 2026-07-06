@@ -1341,7 +1341,7 @@ export default function AboutPage() {
         <p className="bio-p">
           <OE /> is the answer to that question. It encodes 35+ years of pattern
           recognition, signal layering, and conviction scoring into an automated
-          screening engine that scans the Russell 2000 and S&amp;P 500 —
+          screening engine that scans the Russell 3000 and S&amp;P 500 —
           approximately 2,500 stocks — and surfaces only the setups that meet
           Karim&apos;s very high conviction standard.
         </p>
@@ -1669,7 +1669,7 @@ export default function AboutPage() {
                 &quot;I never stopped trading. For over a decade, I kept fielding
                 friends&apos; questions about the technicals on stocks they were
                 watching &mdash; and in the back of my mind, I always wanted to
-                build a system that could sift through the entire Russell 2000 and
+                build a system that could sift through the entire Russell 3000 and
                 surface stocks that passed my stringent and elaborate methodology.
                 So I built one &mdash; for myself. But once I saw what this engine
                 is able to do, I decided to share it. That&apos;s OpusSignals.&quot;

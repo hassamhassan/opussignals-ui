@@ -266,7 +266,7 @@ export default function ScannerWidget() {
         </div>
         <h2>Today&apos;s 3 Free High-Conviction Picks</h2>
         <p>
-          <OpusEngine /> scans the Russell 2000 + S&amp;P 500 across every price
+          <OpusEngine /> scans the Russell 3000 + S&amp;P 500 across every price
           range and only speaks when conviction is very high. Run your free scan
           to see <strong>3 of today&apos;s high-conviction picks</strong> &mdash;
           no selection needed.

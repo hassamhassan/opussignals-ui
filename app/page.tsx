@@ -748,8 +748,8 @@ export default function HomePage() {
               <h3 className="stit">Choose Your Price Range</h3>
               <p className="sbod">
                 Select the range you trade &mdash; from micro-cap momentum at
-                $2&ndash;$5 to premium leaders at $100&ndash;$500. <OE /> scans
-                the <strong>Russell 2000 + S&amp;P 500</strong> within your range
+                $1&ndash;$10 to mid-cap movers at $101+. <OE /> scans
+                the <strong>Russell 3000 + S&amp;P 500</strong> within your range
                 exclusively.
               </p>
             </div>
@@ -944,7 +944,7 @@ export default function HomePage() {
                   sessions
                 </li>
                 <li>
-                  <span className="ck">&#10003;</span>All 6 price ranges available
+                  <span className="ck">&#10003;</span>All 4 price ranges available
                 </li>
                 <li>
                   <span className="ck">&#10003;</span>Full conviction labels on
@@ -961,7 +961,7 @@ export default function HomePage() {
                 </li>
               </ul>
               {/* Free tier scrolls to the scanner widget */}
-              <a href="#ranges" className="pbtn" style={{ display: "block", textDecoration: "none" }}>
+              <a href="#free-picks" className="pbtn" style={{ display: "block", textDecoration: "none" }}>
                 Start Free &mdash; No Sign-Up
               </a>
             </div>
@@ -999,7 +999,7 @@ export default function HomePage() {
                   anytime
                 </li>
                 <li>
-                  <span className="cx">✗</span>Access to other 5 price ranges
+                  <span className="cx">✗</span>Access to other 3 price ranges
                 </li>
               </ul>
               {/* TEMP: public sign-up disabled — send buyers to Contact for now.
@@ -1019,12 +1019,12 @@ export default function HomePage() {
                 <sup>$</sup>499
               </div>
               <div className="pper">
-                per month · one price · all 6 price ranges
+                per month · one price · all 4 price ranges
               </div>
               <ul className="pfeats">
                 <li>
                   <span className="ck">&#10003;</span>High-conviction picks across
-                  all 6 ranges
+                  all 4 ranges
                 </li>
                 <li>
                   <span className="ck">&#10003;</span>Guaranteed min. 1 pick per

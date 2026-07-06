@@ -635,7 +635,7 @@ export default function FaqPage() {
             I never stopped trading. For over a decade, I kept fielding
             friends&apos; questions about the technicals on stocks they were
             watching &mdash; and in the back of my mind, I always wanted to build a
-            system that could sift through the entire Russell 2000 and surface
+            system that could sift through the entire Russell 3000 and surface
             stocks that passed my stringent and elaborate methodology.
           </p>
           <p>

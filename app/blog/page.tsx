@@ -109,12 +109,12 @@ export default function BlogPage() {
             <span>Coming July 2026</span>
           </div>
           <div className="post-title">
-            How OpusEngine&trade; Scans Every Stock in the Russell 2000 for the
+            How OpusEngine&trade; Scans Every Stock in the Russell 3000 for the
             One Signal That Matters
           </div>
           <p className="post-excerpt">
             A look inside the scanning methodology &mdash; how OpusEngine&trade;
-            works through all 2,000 stocks in the Russell 2000, what it filters
+            works through all 3,000 stocks in the Russell 3000, what it filters
             for, and why small-cap signals are where the real opportunity
             consistently emerges.
           </p>

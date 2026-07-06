@@ -30,7 +30,7 @@ export interface FreePickAllowance {
 
 /** app/schemas/performance.py::WinRateBucket */
 export interface WinRateBucket {
-  label: string; // "overall", a horizon ("swing"), or a price range ("$2-$5")
+  label: string; // "overall", a horizon ("swing"), or a price range ("$1-$10")
   wins: number;
   losses: number;
   pending: number;

@@ -4,15 +4,13 @@ import { API_BASE } from "./apiBase";
 // Mirror of app/schemas/common.py (PriceRange, PickHorizon) and the funnel
 // state machine in app/db/models/funnel_session.py (FunnelState).
 
-/** The 6 scanner price ranges. Values match the backend `PriceRange` enum
+/** The 4 scanner price ranges. Values match the backend `PriceRange` enum
  * exactly and are what the `/scan?range=` query param expects. */
 export type PriceRange =
-  | "$2-$5"
-  | "$5-$10"
-  | "$10-$20"
-  | "$20-$50"
-  | "$50-$100"
-  | "$100-$500";
+  | "$1-$10"
+  | "$11-$50"
+  | "$51-$100"
+  | "$101+";
 
 /** Holding horizon a pick optimises for (app/schemas/common.py PickHorizon). */
 export type PickHorizon = "short" | "swing" | "long";
@@ -97,7 +95,7 @@ const API_PREFIX = "/api/v1";
 
 /** Default range sent to /scan when the visitor hasn't picked one — a mid-cap
  * range is a reasonable neutral choice. */
-const DEFAULT_RANGE: PriceRange = "$20-$50";
+const DEFAULT_RANGE: PriceRange = "$11-$50";
 
 async function readError(res: Response): Promise<string> {
   try {

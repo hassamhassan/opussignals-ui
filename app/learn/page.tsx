@@ -822,7 +822,7 @@ export default function LearnPage() {
 
           <p>
             That conviction is what OpusEngine&trade; is built to deliver. The
-            engine scans every stock in the Russell 2000 using this methodology,
+            engine scans every stock in the Russell 3000 using this methodology,
             surfacing the stocks that meet my specific, layered criteria before I
             ever look at a single chart manually. When OpusEngine&trade; flags
             something, it&rsquo;s because the P&amp;F structure is there &mdash; not
