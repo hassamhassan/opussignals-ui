@@ -41,7 +41,7 @@ export default function HomePage() {
           OpusEngine
           <sup
             style={{
-              fontSize: "50%",
+              fontSize: "30%",
               fontWeight: 300,
               verticalAlign: "super",
               lineHeight: 0,
@@ -160,16 +160,17 @@ export default function HomePage() {
 
         <p className="hsub">
           Most screeners flood you with picks. We don&apos;t. <OE /> scans{" "}
-          <strong>3,000+ stocks</strong> and surfaces a pick only when every
-          layer confirms it.
+          <strong>3,000+ stocks</strong> and surfaces picks only when every
+          layer confirms them.
         </p>
 
         <div className="conviction-stmt">
           &quot;We&apos;re so confident, we&apos;ll give you 3 picks right now
-          &mdash; free, no email,
+          &mdash; FREE.
           <br />
-          no credit card. That&apos;s not a trial. That&apos;s a
-          demonstration.&quot;
+          No email, no credit card required. This is not a trial, it&apos;s a
+          <br />
+          demonstration of our confidence.&quot;
         </div>
       </section>
 
@@ -638,16 +639,16 @@ export default function HomePage() {
           <div className="sl">Stocks Scanned Per Run</div>
         </div>
         <div className="si">
-          <div className="sn">25+</div>
-          <div className="sl">Years P&amp;F Expertise</div>
+          <div className="sn">35+</div>
+          <div className="sl">Years Chart Reading Expertise</div>
         </div>
         <div className="si">
           <div className="sn">4×</div>
           <div className="sl">Daily Scan Cycles</div>
         </div>
         <div className="si">
-          <div className="sn">1</div>
-          <div className="sl">Pick When Conviction Is There</div>
+          <div className="sn">1+</div>
+          <div className="sl">Picks When Conviction Is There</div>
         </div>
       </div>
 
@@ -693,7 +694,7 @@ export default function HomePage() {
                 <div className="tl">10 Full Trading Sessions</div>
                 <div className="tt">Watch them perform</div>
                 <div className="td">
-                  10 real NYSE trading days. Weekends, holidays, and half-days
+                  10 actual NYSE trading days. Weekends, holidays, and half-days
                   don&apos;t count. You&apos;ll know exactly how our conviction
                   translated into price action.
                 </div>
@@ -740,7 +741,7 @@ export default function HomePage() {
           </h2>
           <p className="ses" style={{ marginBottom: "48px", maxWidth: "560px" }}>
             No charts to read. No data to interpret. Just the highest-conviction
-            opportunity in your price range &mdash; when the market earns it.
+            opportunities in your price range &mdash; when the market earns it.
           </p>
           <div className="steps">
             <div className="sc">
@@ -769,8 +770,8 @@ export default function HomePage() {
               <div className="snum">03</div>
               <h3 className="stit">Only the Highest Conviction Surfaces</h3>
               <p className="sbod">
-                The top-ranked qualifying stock in your range is your pick. Not a
-                list. <strong>The pick.</strong> If nothing meets our conviction
+                The top-ranked qualifying stocks in your range are your picks. Not a
+                list. <strong>The picks.</strong> If nothing meets our conviction
                 threshold today, nothing is issued. <br />
                 <span style={{ color: "#ffffff" }}>
                   {" "}
@@ -1408,10 +1409,10 @@ export default function HomePage() {
                 Win rate below 70%?
               </div>
               <div
-                style={{ fontSize: "12px", color: "var(--gray2)", lineHeight: 1.55 }}
+                style={{ fontSize: "14px", color: "var(--gray2)", lineHeight: 1.55 }}
               >
-                Full refund. Immediately. No questions asked. You have our word
-                and our data to back it up.
+                Full refund immediately upon request. No questions asked. You
+                have our word and our data to back it up.
               </div>
             </div>
             <div
@@ -1437,7 +1438,7 @@ export default function HomePage() {
                 Win rate 70% or above?
               </div>
               <div
-                style={{ fontSize: "12px", color: "var(--gray2)", lineHeight: 1.55 }}
+                style={{ fontSize: "14px", color: "var(--gray2)", lineHeight: 1.55 }}
               >
                 We&apos;ll kindly point to the data. A refund on a service that
                 delivered isn&apos;t something we can honor in good conscience.

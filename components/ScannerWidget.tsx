@@ -285,7 +285,7 @@ export default function ScannerWidget() {
           highest-conviction pick for you.
         </p>
 
-        <div className="free-badge">
+        <div className="free-badge" style={{ color: "#E5AA2A" }}>
           &#10003; &nbsp;3 Free Picks &middot; No Email &middot; No Credit
           Card &middot; No Catch
         </div>
@@ -553,6 +553,24 @@ export default function ScannerWidget() {
               <strong>next high-conviction opportunity</strong> every single
               week.
             </p>
+
+            {/* Session progress — show completion status */}
+            {session && (
+              <div className="session-progress" style={{ marginBottom: "20px" }}>
+                <div className="session-bar">
+                  <div
+                    className="session-fill"
+                    style={{
+                      width: `${Math.min(Math.round((session.sessions_used / session.sessions_total) * 100), 100)}%`,
+                    }}
+                  />
+                </div>
+                <div className="session-labels">
+                  <span>{session.sessions_used} of {session.sessions_total} sessions completed</span>
+                  <span>{Math.max(session.sessions_total - session.sessions_used, 0)} remaining</span>
+                </div>
+              </div>
+            )}
 
             {/* Range buttons — also visible in paywall for context */}
             <div className="ranges" style={{ marginBottom: "20px" }}>
