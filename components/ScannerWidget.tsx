@@ -101,7 +101,9 @@ function PicksNotPublished({ pickDate }: { pickDate?: string }) {
 /** Shown after the free picks are used, while the proof window is running.
  *  The server stops serving picks here — the 2 follow-up picks arrive via email
  *  once the window closes. */
-function AwaitingWindow({ remaining }: { remaining: number }) {
+function AwaitingWindow({ used, total }: { used: number; total: number }) {
+  const remaining = Math.max(total - used, 0);
+  const pct = Math.min(Math.round((used / total) * 100), 100);
   return (
     <div className="calibrating">
       <div className="cal-title">Your free picks are locked in</div>
@@ -111,6 +113,15 @@ function AwaitingWindow({ remaining }: { remaining: number }) {
         session{remaining === 1 ? "" : "s"} (no weekends or holidays), then
         we&apos;ll email them to you.
       </p>
+      <div className="session-progress">
+        <div className="session-bar">
+          <div className="session-fill" style={{ width: `${pct}%` }} />
+        </div>
+        <div className="session-labels">
+          <span>{used} of {total} sessions completed</span>
+          <span>{remaining} remaining</span>
+        </div>
+      </div>
       <div className="cal-badge">&#9656; &nbsp;Proof window in progress</div>
     </div>
   );
@@ -302,6 +313,14 @@ export default function ScannerWidget() {
                 );
               })}
             </div>
+
+            {/* Returning visitor in the proof-window — show progress immediately */}
+            {!scanned && funnelState === "awaiting_sessions" && session && (
+              <AwaitingWindow
+                used={session.sessions_used}
+                total={session.sessions_total}
+              />
+            )}
             <div className="range-note">
               Your 3 free picks are drawn from <OpusEngine />&apos;s
               highest-conviction setups across the full Russell 3000 universe.
@@ -370,11 +389,8 @@ export default function ScannerWidget() {
         {scanned && !picksNotPublished && picks.length === 0 && showScanner &&
           funnelState === "awaiting_sessions" && (
             <AwaitingWindow
-              remaining={
-                session
-                  ? Math.max(session.sessions_total - session.sessions_used, 0)
-                  : 10
-              }
+              used={session?.sessions_used ?? 0}
+              total={session?.sessions_total ?? 10}
             />
           )}
 
@@ -428,6 +444,22 @@ export default function ScannerWidget() {
                     : 10}{" "}
                   full trading sessions
                 </div>
+                {session && (
+                  <div className="session-progress" style={{ marginTop: "10px" }}>
+                    <div className="session-bar">
+                      <div
+                        className="session-fill"
+                        style={{
+                          width: `${Math.min(Math.round((session.sessions_used / session.sessions_total) * 100), 100)}%`,
+                        }}
+                      />
+                    </div>
+                    <div className="session-labels">
+                      <span>{session.sessions_used} of {session.sessions_total} sessions completed</span>
+                      <span>{Math.max(session.sessions_total - session.sessions_used, 0)} remaining</span>
+                    </div>
+                  </div>
+                )}
                 <p
                   style={{
                     marginTop: "12px",
@@ -447,7 +479,6 @@ export default function ScannerWidget() {
           </div>
         )}
 
-        {/* Email gate — after the proof window elapses */}
         {showEmailGate && (
           <div className="email-gate on" id="emailGate">
             <div className="eg-title">
@@ -522,6 +553,30 @@ export default function ScannerWidget() {
               <strong>next high-conviction opportunity</strong> every single
               week.
             </p>
+
+            {/* Range buttons — also visible in paywall for context */}
+            <div className="ranges" style={{ marginBottom: "20px" }}>
+              {(["$1 – $10", "$11 – $50", "$51 – $100", "$101 & up"] as const).map((range, i) => {
+                const labels = [
+                  { rl: "$1 \u2013 $10", rs: "Micro \u0026 small-cap momentum" },
+                  { rl: "$11 \u2013 $50", rs: "Growth \u0026 mid-cap movers" },
+                  { rl: "$51 \u2013 $100", rs: "Blue chip setups" },
+                  { rl: "$101 \u0026 up", rs: "Premium leaders" },
+                ][i];
+                return (
+                  <button
+                    key={range}
+                    type="button"
+                    className={`rb${selectedRange === range ? " sel" : ""}`}
+                    onClick={() => setSelectedRange(range)}
+                  >
+                    <div className="rl" dangerouslySetInnerHTML={{ __html: labels.rl }} />
+                    <div className="rs" dangerouslySetInnerHTML={{ __html: labels.rs }} />
+                  </button>
+                );
+              })}
+            </div>
+
             <button
               type="button"
               className="pwbtn"

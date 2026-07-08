@@ -102,6 +102,12 @@ h1 em{font-style:normal;color:var(--gold2)}
 .cal-body{font-size:12.5px;color:var(--gray);line-height:1.65;margin-bottom:14px;max-width:380px;margin-left:auto;margin-right:auto}
 .cal-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10.5px;color:var(--gold);letter-spacing:1px;background:rgba(200,146,26,.08);border:1px solid rgba(200,146,26,.2);border-radius:4px;padding:5px 12px}
 
+/* SESSION PROGRESS BAR */
+.session-progress{width:100%;max-width:340px;margin:0 auto}
+.session-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.session-fill{height:100%;background:var(--gold);border-radius:3px;transition:width .4s ease}
+.session-labels{display:flex;justify-content:space-between;margin-top:6px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray2);letter-spacing:.3px}
+
 /* RESULTS */
 .results{display:none;margin-top:20px;border-top:1px solid rgba(200,146,26,.15);padding-top:20px}
 .results.on{display:block}
