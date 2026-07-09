@@ -5,12 +5,23 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import AuthDisabledNotice from "@/components/AuthDisabledNotice";
 import { signupFree, sendOtp, verifyOtp } from "@/lib/auth";
 import "@/app/login/login.css";
 
 type Step = "email" | "otp" | "password";
 
+// TEMP: public auth is disabled until transactional email (OTP delivery) is live
+// — SendGrid isn't configured yet, so the OTP step would dead-end. Flip this to
+// true to restore the real signup flow below (SignupPageForm) once email works.
+const AUTH_ENABLED = false;
+
 export default function SignupPage() {
+  if (!AUTH_ENABLED) return <AuthDisabledNotice mode="signup" />;
+  return <SignupPageForm />;
+}
+
+function SignupPageForm() {
   const router = useRouter();
   const [step, setStep] = useState<Step>("email");
   const [email, setEmail] = useState("");
