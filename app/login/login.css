@@ -135,3 +135,76 @@
 .auth-alt a:hover {
   color: var(--gold3);
 }
+
+/* ── OTP / Multi-step styles ── */
+
+.auth-steps {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.auth-step {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--gray2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 5px 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.auth-step.active {
+  color: var(--gold2);
+  border-color: rgba(200, 146, 26, 0.4);
+  background: rgba(200, 146, 26, 0.08);
+}
+
+.auth-step.done {
+  color: var(--green-bright);
+  border-color: rgba(27, 107, 58, 0.3);
+  background: rgba(27, 107, 58, 0.08);
+}
+
+.otp-input {
+  font-family: "DM Mono", monospace !important;
+  font-size: 24px !important;
+  letter-spacing: 8px;
+  text-align: center;
+  padding: 14px 18px !important;
+}
+
+.auth-resend {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--gray2);
+}
+
+.auth-resend-btn {
+  background: none;
+  border: none;
+  color: var(--gold2);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.auth-resend-btn:hover {
+  background: rgba(200, 146, 26, 0.08);
+}
+
+.auth-resend-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.auth-sub strong {
+  color: var(--gold2);
+}

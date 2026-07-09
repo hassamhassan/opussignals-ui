@@ -2,32 +2,125 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { notFound, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { login } from "@/lib/auth";
+import AuthDisabledNotice from "@/components/AuthDisabledNotice";
+import { login, verifyOtp, loginVerify } from "@/lib/auth";
 import "./login.css";
 
-export default function LoginPage() {
-  // TEMP: public sign-in is disabled — the URL is hidden (returns 404) for now.
-  // Delete this line (and the `notFound` import) to re-enable the login page.
-  notFound();
+type Step = "credentials" | "otp";
 
+// TEMP: public auth is disabled until transactional email (OTP delivery) is live
+// — SendGrid isn't configured yet, so the OTP step would dead-end. Flip this to
+// true to restore the real login flow below (LoginPageForm) once email works.
+const AUTH_ENABLED = false;
+
+export default function LoginPage() {
+  if (!AUTH_ENABLED) return <AuthDisabledNotice mode="login" />;
+  return <LoginPageForm />;
+}
+
+function LoginPageForm() {
   const router = useRouter();
+  const [step, setStep] = useState<Step>("credentials");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [otpCode, setOtpCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
 
-  async function onSubmit(e: React.FormEvent) {
+  // Step 1: Submit email + password — backend sends OTP if credentials valid
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setBusy(true);
     try {
-      await login(email.trim(), password);
-      router.push("/dashboard");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000"}/api/v1/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ email: email.trim(), password }),
+        },
+      );
+      if (res.status === 401) {
+        setError("Invalid email or password.");
+        setBusy(false);
+        return;
+      }
+      if (!res.ok) {
+        setError(`Login failed (HTTP ${res.status}).`);
+        setBusy(false);
+        return;
+      }
+      const data = await res.json();
+
+      // If the backend returned tokens directly (admin bypass), go to dashboard.
+      if (data.access_token) {
+        const { setToken } = await import("@/lib/auth");
+        setToken(data.access_token);
+        router.push("/dashboard");
+        return;
+      }
+
+      // OTP required — move to step 2.
+      if (data.otp_required) {
+        setStep("otp");
+        startResendCooldown();
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Step 2: Verify OTP then get tokens
+  async function handleVerifyOtp(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    if (otpCode.length !== 6) {
+      setError("Please enter the 6-digit code from your email.");
+      return;
+    }
+    setBusy(true);
+    try {
+      await verifyOtp(email.trim(), otpCode, "login");
+      await loginVerify(email.trim(), password);
+      router.push("/dashboard");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Verification failed.");
+      setBusy(false);
+    }
+  }
+
+  // Resend cooldown
+  function startResendCooldown() {
+    setResendCooldown(60);
+    const timer = setInterval(() => {
+      setResendCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  }
+
+  async function handleResend() {
+    setError(null);
+    setBusy(true);
+    try {
+      const { sendOtp } = await import("@/lib/auth");
+      await sendOtp(email.trim(), "login");
+      startResendCooldown();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not resend code.");
+    } finally {
       setBusy(false);
     }
   }
@@ -43,41 +136,80 @@ export default function LoginPage() {
             Log in to see your picks, track performance, and manage your account.
           </p>
 
-          <form onSubmit={onSubmit}>
-            {error && <div className="auth-error">{error}</div>}
+          {error && <div className="auth-error">{error}</div>}
 
-            <div className="auth-field">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                className="einput"
-                autoComplete="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+          {/* Step 1: Email + Password */}
+          {step === "credentials" && (
+            <form onSubmit={handleLogin}>
+              <div className="auth-field">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="einput"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
 
-            <div className="auth-field">
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                className="einput"
-                autoComplete="current-password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+              <div className="auth-field">
+                <label htmlFor="password">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  className="einput"
+                  autoComplete="current-password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
 
-            <button type="submit" className="scanbtn auth-submit" disabled={busy}>
-              {busy ? "Signing in…" : "Log in"}
-            </button>
-          </form>
+              <button type="submit" className="scanbtn auth-submit" disabled={busy}>
+                {busy ? "Signing in…" : "Log in"}
+              </button>
+            </form>
+          )}
+
+          {/* Step 2: OTP Verification */}
+          {step === "otp" && (
+            <form onSubmit={handleVerifyOtp}>
+              <p className="auth-sub" style={{ marginTop: "8px" }}>
+                We sent a 6-digit code to <strong>{email}</strong>. Enter it below to complete login.
+              </p>
+              <div className="auth-field">
+                <label htmlFor="otp">Verification Code</label>
+                <input
+                  id="otp"
+                  type="text"
+                  inputMode="numeric"
+                  className="einput otp-input"
+                  autoComplete="one-time-code"
+                  placeholder="000000"
+                  maxLength={6}
+                  value={otpCode}
+                  onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                  required
+                />
+              </div>
+              <button type="submit" className="scanbtn auth-submit" disabled={busy}>
+                {busy ? "Verifying…" : "Verify & log in"}
+              </button>
+              <div className="auth-resend">
+                {resendCooldown > 0 ? (
+                  <span>Resend in {resendCooldown}s</span>
+                ) : (
+                  <button type="button" onClick={handleResend} disabled={busy} className="auth-resend-btn">
+                    Resend code
+                  </button>
+                )}
+              </div>
+            </form>
+          )}
 
           <div className="auth-alt">
             Don&apos;t have an account?{" "}

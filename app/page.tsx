@@ -41,7 +41,7 @@ export default function HomePage() {
           OpusEngine
           <sup
             style={{
-              fontSize: "50%",
+              fontSize: "30%",
               fontWeight: 300,
               verticalAlign: "super",
               lineHeight: 0,
@@ -65,7 +65,7 @@ export default function HomePage() {
               letterSpacing: "-.5px",
             }}
           >
-            Don&rsquo;t Trust Us &mdash; Test it Yourself.
+            Don&rsquo;t Trust Us &mdash; Test it for Free.
           </div>
 
           <div
@@ -74,12 +74,12 @@ export default function HomePage() {
               background: "none",
               border: "none",
               padding: 0,
-              color: "#B0C4D6",
+              color: "var(--gray-pale)",
               display: "block",
               marginBottom: "28px",
             }}
           >
-            Less Noise &middot; More Conviction &middot; Powered by <OE />
+            No Name, Email or Credit Card Required for Your 3 Free Stock Picks.
           </div>
 
           <Link
@@ -160,16 +160,17 @@ export default function HomePage() {
 
         <p className="hsub">
           Most screeners flood you with picks. We don&apos;t. <OE /> scans{" "}
-          <strong>2,500+ stocks</strong> and surfaces a pick only when every
-          layer confirms it.
+          <strong>3,000+ stocks</strong> and surfaces picks only when every
+          layer confirms them.
         </p>
 
         <div className="conviction-stmt">
           &quot;We&apos;re so confident, we&apos;ll give you 3 picks right now
-          &mdash; free, no email,
+          &mdash; FREE.
           <br />
-          no credit card. That&apos;s not a trial. That&apos;s a
-          demonstration.&quot;
+          No email, no credit card required. This is not a trial, it&apos;s a
+          <br />
+          demonstration of our confidence.&quot;
         </div>
       </section>
 
@@ -466,7 +467,7 @@ export default function HomePage() {
             >
               <strong>Karim Pirani</strong> is a 35+ year stock trading veteran
               and Point &amp; Figure specialist. In 2013, he turned{" "}
-              <strong style={{ color: "#5dba7d" }}>
+              <strong style={{ color: "var(--green-bright)" }}>
                 $10,000 into $1,074,475 in exactly 6 months
               </strong>{" "}
               on Seeking Alpha &mdash; every single trade posted publicly before
@@ -634,20 +635,20 @@ export default function HomePage() {
       {/* STATS */}
       <div className="stats">
         <div className="si">
-          <div className="sn">2,500+</div>
+          <div className="sn">3,000+</div>
           <div className="sl">Stocks Scanned Per Run</div>
         </div>
         <div className="si">
           <div className="sn">35+</div>
-          <div className="sl">Years P&amp;F Expertise</div>
+          <div className="sl">Years Chart Reading Expertise</div>
         </div>
         <div className="si">
           <div className="sn">4×</div>
           <div className="sl">Daily Scan Cycles</div>
         </div>
         <div className="si">
-          <div className="sn">1</div>
-          <div className="sl">Pick When Conviction Is There</div>
+          <div className="sn">1+</div>
+          <div className="sl">Picks When Conviction Is There</div>
         </div>
       </div>
 
@@ -667,7 +668,7 @@ export default function HomePage() {
                 3 high-conviction picks, completely free, no email, no credit
                 card.
               </strong>{" "}
-              Come back after 5 full trading sessions &mdash; real market days, no
+              Come back after 10 full trading sessions &mdash; real market days, no
               weekends, no holidays &mdash; for 2 more, on us. Then decide.
             </p>
           </div>
@@ -680,7 +681,7 @@ export default function HomePage() {
                 <div className="tl">Right Now</div>
                 <div className="tt">3 free high-conviction picks</div>
                 <div className="td">
-                  Selected by <OE /> from 2,500+ stocks. No email. No friction.{" "}
+                  Selected by <OE /> from 3,000+ stocks. No email. No friction.{" "}
                   <strong>Pure demonstration of quality.</strong>
                 </div>
               </div>
@@ -693,7 +694,7 @@ export default function HomePage() {
                 <div className="tl">10 Full Trading Sessions</div>
                 <div className="tt">Watch them perform</div>
                 <div className="td">
-                  10 real NYSE trading days. Weekends, holidays, and half-days
+                  10 actual NYSE trading days. Weekends, holidays, and half-days
                   don&apos;t count. You&apos;ll know exactly how our conviction
                   translated into price action.
                 </div>
@@ -740,7 +741,7 @@ export default function HomePage() {
           </h2>
           <p className="ses" style={{ marginBottom: "48px", maxWidth: "560px" }}>
             No charts to read. No data to interpret. Just the highest-conviction
-            opportunity in your price range &mdash; when the market earns it.
+            opportunities in your price range &mdash; when the market earns it.
           </p>
           <div className="steps">
             <div className="sc">
@@ -748,8 +749,8 @@ export default function HomePage() {
               <h3 className="stit">Choose Your Price Range</h3>
               <p className="sbod">
                 Select the range you trade &mdash; from micro-cap momentum at
-                $1&ndash;$10 to mid-cap movers at $101+. <OE /> scans
-                the <strong>Russell 3000 + S&amp;P 500</strong> within your range
+                $1&ndash;$10 to premium leaders at $101 and up. <OE /> scans
+                the <strong>Russell 3000</strong> within your range
                 exclusively.
               </p>
             </div>
@@ -769,8 +770,8 @@ export default function HomePage() {
               <div className="snum">03</div>
               <h3 className="stit">Only the Highest Conviction Surfaces</h3>
               <p className="sbod">
-                The top-ranked qualifying stock in your range is your pick. Not a
-                list. <strong>The pick.</strong> If nothing meets our conviction
+                The top-ranked qualifying stocks in your range are your picks. Not a
+                list. <strong>The picks.</strong> If nothing meets our conviction
                 threshold today, nothing is issued. <br />
                 <span style={{ color: "#ffffff" }}>
                   {" "}
@@ -788,7 +789,7 @@ export default function HomePage() {
         <div>
           <div className="qmark">&quot;</div>
           <p className="qtext">
-            After 35 years of reading P&amp;F charts in real markets, one
+            After 25+ years of reading P&amp;F charts in real markets, one
             develops a feel for which setups have genuine conviction behind them
             and which ones are noise. <OE /> is that instinct, structured. When I
             see a pick that clears every layer of the methodology, I have very
@@ -852,7 +853,7 @@ export default function HomePage() {
         <div className="conf-inner">
           <h2 className="conf-title">High Conviction Only</h2>
           <p className="conf-body">
-            <strong style={{ color: "#C8921A" }}>
+            <strong style={{ color: "var(--gold)" }}>
               {" "}
               We don&rsquo;t ask for your email or your credit card. No sign-up.
               We just give you our picks — cold.
@@ -870,7 +871,7 @@ export default function HomePage() {
               maxWidth: "650px",
               margin: "28px auto",
               padding: "20px 28px",
-              borderLeft: "3px solid #dcac47",
+              borderLeft: "3px solid var(--gold-muted)",
               background: "rgba(200,146,26,.06)",
               borderRadius: "0 8px 8px 0",
               textAlign: "left",
@@ -888,7 +889,7 @@ export default function HomePage() {
               &quot;Miss reading your blog. Would love for you to have another
               &apos;building a small fortune&apos; experience &mdash;{" "}
               <strong
-                style={{ fontStyle: "italic", color: "#dcac47" }}
+                style={{ fontStyle: "italic", color: "var(--gold-muted)" }}
               >
                 this time I would get in at ground level.
               </strong>
@@ -898,7 +899,7 @@ export default function HomePage() {
               style={{
                 fontFamily: "'DM Mono',monospace",
                 fontSize: "15px",
-                color: "#dcac47",
+                color: "var(--gold-muted)",
                 letterSpacing: "1.5px",
               }}
             >
@@ -940,7 +941,7 @@ export default function HomePage() {
                   email)
                 </li>
                 <li>
-                  <span className="ck">&#10003;</span>2 more picks after 5 trading
+                  <span className="ck">&#10003;</span>2 more picks after 10 trading
                   sessions
                 </li>
                 <li>
@@ -1153,7 +1154,7 @@ export default function HomePage() {
               fontSize: "20px",
               letterSpacing: "3px",
               textTransform: "uppercase",
-              color: "#C8921A",
+              color: "var(--gold)",
               marginBottom: "16px",
               fontWeight: 500,
             }}
@@ -1174,7 +1175,7 @@ export default function HomePage() {
           >
             Performance-Backed.
             <br />
-            <span style={{ color: "#5dba7d" }}>
+            <span style={{ color: "var(--green-bright)" }}>
               Money Back. No Questions Asked.
             </span>
           </h2>
@@ -1182,7 +1183,7 @@ export default function HomePage() {
           <p
             style={{
               fontSize: "16px",
-              color: "#8899AA",
+              color: "var(--gray2)",
               lineHeight: 1.75,
               maxWidth: "720px",
               margin: "0 auto 40px",
@@ -1233,7 +1234,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontSize: "13px",
-                  color: "#8899AA",
+                  color: "var(--gray2)",
                   lineHeight: 1.6,
                   fontWeight: 300,
                 }}
@@ -1268,7 +1269,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontSize: "13px",
-                  color: "#8899AA",
+                  color: "var(--gray2)",
                   lineHeight: 1.6,
                   fontWeight: 300,
                 }}
@@ -1303,7 +1304,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontSize: "13px",
-                  color: "#8899AA",
+                  color: "var(--gray2)",
                   lineHeight: 1.6,
                   fontWeight: 300,
                 }}
@@ -1331,7 +1332,7 @@ export default function HomePage() {
                 fontFamily: "'DM Mono',monospace",
                 fontSize: "20px",
                 textTransform: "uppercase",
-                color: "#E5AA2A",
+                color: "var(--gold2)",
                 marginBottom: "16px",
                 fontWeight: 500,
               }}
@@ -1341,7 +1342,7 @@ export default function HomePage() {
             <p
               style={{
                 fontSize: "17px",
-                color: "#C2D2E0",
+                color: "var(--gray-light)",
                 lineHeight: 1.8,
                 fontWeight: 300,
                 fontStyle: "italic",
@@ -1362,7 +1363,7 @@ export default function HomePage() {
             >
               Should our picks fail to deliver &mdash; meaning our win rate falls
               below{" "}
-              <strong style={{ color: "#5dba7d" }}>
+              <strong style={{ color: "var(--green-bright)" }}>
                 70% of picks issued to your account
               </strong>{" "}
               &mdash; your subscription, upon request, will immediately be
@@ -1401,17 +1402,17 @@ export default function HomePage() {
                 style={{
                   fontSize: "13px",
                   fontWeight: 700,
-                  color: "#e07070",
+                  color: "var(--red-light)",
                   marginBottom: "6px",
                 }}
               >
                 Win rate below 70%?
               </div>
               <div
-                style={{ fontSize: "12px", color: "#8899AA", lineHeight: 1.55 }}
+                style={{ fontSize: "14px", color: "var(--gray2)", lineHeight: 1.55 }}
               >
-                Full refund. Immediately. No questions asked. You have our word
-                and our data to back it up.
+                Full refund immediately upon request. No questions asked. You
+                have our word and our data to back it up.
               </div>
             </div>
             <div
@@ -1430,14 +1431,14 @@ export default function HomePage() {
                 style={{
                   fontSize: "13px",
                   fontWeight: 700,
-                  color: "#5dba7d",
+                  color: "var(--green-bright)",
                   marginBottom: "6px",
                 }}
               >
                 Win rate 70% or above?
               </div>
               <div
-                style={{ fontSize: "12px", color: "#8899AA", lineHeight: 1.55 }}
+                style={{ fontSize: "14px", color: "var(--gray2)", lineHeight: 1.55 }}
               >
                 We&apos;ll kindly point to the data. A refund on a service that
                 delivered isn&apos;t something we can honor in good conscience.

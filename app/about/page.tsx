@@ -124,7 +124,7 @@ export default function AboutPage() {
     const callIdx = 5;
     const peakIdx = 23;
     const bgColors = prices.map((_, i) =>
-      i === callIdx ? "#ef4444" : i === peakIdx ? "#22c55e" : "#dcac47"
+      i === callIdx ? "#ef4444" : i === peakIdx ? "#22c55e" : "var(--gold-muted)"
     );
     const borderColors = prices.map((_, i) =>
       i === callIdx ? "#ef4444" : i === peakIdx ? "#22c55e" : "#0D1B2E"
@@ -147,7 +147,7 @@ export default function AboutPage() {
           {
             label: "ELON",
             data: prices,
-            borderColor: "#dcac47",
+            borderColor: "var(--gold-muted)",
             borderWidth: 2.5,
             tension: 0.35,
             fill: true,
@@ -174,7 +174,7 @@ export default function AboutPage() {
             borderColor: "rgba(220,172,71,0.3)",
             borderWidth: 1,
             titleColor: "#F8F3E8",
-            bodyColor: "#8A99AE",
+            bodyColor: "var(--gray2)",
             padding: 12,
             titleFont: { size: 12, weight: "500" },
             bodyFont: { size: 12 },
@@ -208,7 +208,7 @@ export default function AboutPage() {
         scales: {
           x: {
             ticks: {
-              color: "#8A99AE",
+              color: "var(--gray2)",
               font: { size: 10 },
               maxRotation: 45,
               autoSkip: true,
@@ -218,7 +218,7 @@ export default function AboutPage() {
           },
           y: {
             ticks: {
-              color: "#8A99AE",
+              color: "var(--gray2)",
               font: { size: 10 },
               callback: function (v: any) {
                 return "$" + v;
@@ -377,11 +377,11 @@ export default function AboutPage() {
         </p>
         <div className="bio-quote">
           <p>
-            &quot;After 35 years of reading P&amp;F charts along with other market
+            &quot;After 25+ years of reading P&amp;F charts along with other market
             signals, you develop a feel for which setups have genuine conviction
             behind them and which ones are noise. <OE /> is that instinct,
             structured. When I see a pick that clears every layer of my methodology
-            honed over 35+ years, I have very high confidence. When I don&apos;t —
+            honed over 25+ years, I have very high confidence. When I don&apos;t —
             I won&apos;t share a pick for the sake of sharing. That patience is the
             edge.&quot;
           </p>
@@ -419,7 +419,7 @@ export default function AboutPage() {
           strips away time and focuses purely on price movement. P&amp;F charts
           filter out the noise that confuses most technical analysts and reveal the
           underlying supply and demand dynamics of a stock with unusual clarity.
-          Over 35+ years, Karim has developed an intuitive mastery of P&amp;F
+          Over 25+ years, Karim has developed an intuitive mastery of P&amp;F
           patterns that forms the foundation of every trade decision he makes.
         </p>
         <p className="bio-p">
@@ -662,7 +662,7 @@ export default function AboutPage() {
         <div
           style={{
             background: "rgba(220,172,71,0.07)",
-            borderLeft: "4px solid #C8921A",
+            borderLeft: "4px solid var(--gold)",
             borderRadius: "0 10px 10px 0",
             padding: "28px 32px",
             margin: "36px 0",
@@ -674,7 +674,7 @@ export default function AboutPage() {
               fontFamily: "'DM Mono',monospace",
               fontSize: "11px",
               letterSpacing: "3px",
-              color: "#C8921A",
+              color: "var(--gold)",
               textTransform: "uppercase",
               marginBottom: "16px",
             }}
@@ -694,8 +694,8 @@ export default function AboutPage() {
             The client needed to be more conservative than O2W — he required
             liquidity to keep his business afloat, and at times withdrew
             significant sums for that purpose. Even so, the account grew from under{" "}
-            <strong style={{ color: "#C8921A" }}>$15,000</strong> to over{" "}
-            <strong style={{ color: "#C8921A" }}>$752,000</strong> in the same
+            <strong style={{ color: "var(--gold)" }}>$15,000</strong> to over{" "}
+            <strong style={{ color: "var(--gold)" }}>$752,000</strong> in the same
             seven-month window — before withdrawals for business expenses.
           </p>
           <p className="bio-p">
@@ -721,7 +721,7 @@ export default function AboutPage() {
               marginBottom: 0,
               marginTop: "16px",
               fontSize: "13px",
-              color: "#8A99AE",
+              color: "var(--gray2)",
               fontStyle: "italic",
             }}
           >
@@ -753,7 +753,7 @@ export default function AboutPage() {
 
         <p
           className="bio-p"
-          style={{ fontStyle: "italic", color: "#8899AA", fontSize: "13px" }}
+          style={{ fontStyle: "italic", color: "var(--gray2)", fontSize: "13px" }}
         >
           All posts referenced on this page were copied directly from Seeking Alpha
           and reproduced here with their original publication dates. The posts
@@ -851,7 +851,7 @@ export default function AboutPage() {
           <br />
           <em>Real Words. Real Returns.</em>
         </h2>
-        <p className="bio-p" style={{ color: "#8899AA" }}>
+        <p className="bio-p" style={{ color: "var(--gray2)" }}>
           These are real comments from Options2Wealth followers on Seeking Alpha —
           timestamped, publicly posted, unedited. Karim never solicited a single
           testimonial. These came organically from people who followed a public
@@ -873,7 +873,7 @@ export default function AboutPage() {
                   &quot;I actually took my play money and followed just a few of
                   Karim&apos;s moves starting in February. It was a bumpy ride at
                   first... But as of 6/18,{" "}
-                  <strong style={{ color: "#5dba7d", fontStyle: "normal" }}>
+                  <strong style={{ color: "var(--green-bright)", fontStyle: "normal" }}>
                     I am up 1900%.
                   </strong>{" "}
                   While it isn&apos;t 10,000%, I cannot complain now that my play
@@ -890,7 +890,7 @@ export default function AboutPage() {
                     His results are putting Jim Cramer to shame!
                   </strong>{" "}
                   He&apos;ll be in a category of his own.{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     I&apos;d gladly pay subscription fees for this type of advice.
                   </strong>
                   &quot;
@@ -903,7 +903,7 @@ export default function AboutPage() {
                 <>
                   &quot;I have just started options trading over the last few weeks
                   from following this blog. I started with about $7,000.{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     I am up 89%.
                   </strong>
                   &quot;
@@ -916,7 +916,7 @@ export default function AboutPage() {
                 <>
                   &quot;I started only one month ago investing based upon the
                   knowledge I have gained from this blog and talking with Karim.{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     In that one month my investment has grown more than 250%.
                   </strong>{" "}
                   Not bad for a start and for one month. I look forward to making
@@ -939,7 +939,7 @@ export default function AboutPage() {
                   stock had a volatile down day or two, I would be a lot richer.
                   But thanks to you, I hopefully will be able to stay the course
                   next time. Today I am{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     &apos;richer&apos; from the experience
                   </strong>{" "}
                   I gained from your sharing. Thanks and God Bless You!&quot;
@@ -951,7 +951,7 @@ export default function AboutPage() {
               quote: (
                 <>
                   &quot;The only reason/motivation could be:{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     &apos;Show/help others how we can earn money in equity market
                     with good planning, research&apos;. You are doing it for us.
                     Respect.
@@ -967,7 +967,7 @@ export default function AboutPage() {
                   &quot;I remember offering him to manage funds for me for a 55% cut
                   of the profits, to which he politely declined and stated he&apos;d
                   rather teach me the &apos;HOW&apos; through his blog.{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     My returns: GALE 825% · SUNE 413% · SPWR 374% · TSL 334% · SCTY
                     208%.
                   </strong>
@@ -998,7 +998,7 @@ export default function AboutPage() {
                   &quot;I stumbled upon your blog about a week and a half ago — I
                   was Google fishing for 3 box reversals. Could not stop reading
                   your posts.{" "}
-                  <strong style={{ fontStyle: "normal", color: "#5dba7d" }}>
+                  <strong style={{ fontStyle: "normal", color: "var(--green-bright)" }}>
                     You demolished any doubts of anyone that started reading your
                     blogs in the beginnings.
                   </strong>{" "}
@@ -1240,7 +1240,7 @@ export default function AboutPage() {
                 <span
                   style={{
                     fontSize: "10px",
-                    color: "#8A99AE",
+                    color: "var(--gray2)",
                     fontStyle: "italic",
                   }}
                 >
@@ -1328,7 +1328,7 @@ export default function AboutPage() {
         <h2 className="section-title">
           Systematizing
           <br />
-          <em>35 Years of Instinct</em>
+          <em>25+ Years of P&amp;F Instinct</em>
         </h2>
         <p className="bio-p">
           The Options2Wealth experiment proved something Karim had always believed:
@@ -1339,10 +1339,10 @@ export default function AboutPage() {
           analyst could monitor at once.
         </p>
         <p className="bio-p">
-          <OE /> is the answer to that question. It encodes 35+ years of pattern
-          recognition, signal layering, and conviction scoring into an automated
+          <OE /> is the answer to that question. It encodes 25+ years of P&amp;F
+          pattern recognition, signal layering, and conviction scoring into an automated
           screening engine that scans the Russell 3000 and S&amp;P 500 —
-          approximately 2,500 stocks — and surfaces only the setups that meet
+          approximately 3,000 stocks — and surfaces only the setups that meet
           Karim&apos;s very high conviction standard.
         </p>
         <p className="bio-p">
@@ -1360,7 +1360,7 @@ export default function AboutPage() {
             entire library.{" "}
             <strong>
               When <OE /> identifies a Cup &amp; Handle today, it is drawing on the
-              same 35+ years of pattern recognition that called Sprint before it
+              same 25+ years of P&amp;F pattern recognition that called Sprint before it
               broke out.
             </strong>
           </p>
@@ -1419,7 +1419,7 @@ export default function AboutPage() {
                   style={{
                     fontSize: "11px",
                     letterSpacing: "2px",
-                    color: "#C8921A",
+                    color: "var(--gold)",
                     textTransform: "uppercase",
                     fontWeight: 500,
                     marginBottom: "4px",
@@ -1430,7 +1430,7 @@ export default function AboutPage() {
                 <div
                   style={{
                     fontSize: "11px",
-                    color: "#8A99AE",
+                    color: "var(--gray2)",
                     marginBottom: "16px",
                   }}
                 >
@@ -1462,7 +1462,7 @@ export default function AboutPage() {
                       style={{
                         width: "20px",
                         height: "2px",
-                        background: "#dcac47",
+                        background: "var(--gold-muted)",
                         borderRadius: "2px",
                       }}
                     ></div>
@@ -1471,10 +1471,10 @@ export default function AboutPage() {
                         width: "7px",
                         height: "7px",
                         borderRadius: "50%",
-                        background: "#dcac47",
+                        background: "var(--gold-muted)",
                       }}
                     ></div>
-                    <span style={{ fontSize: "11px", color: "#8A99AE" }}>
+                    <span style={{ fontSize: "11px", color: "var(--gray2)" }}>
                       ELON weekly close
                     </span>
                   </div>
@@ -1487,13 +1487,13 @@ export default function AboutPage() {
                         background: "#ef4444",
                       }}
                     ></div>
-                    <span style={{ fontSize: "11px", color: "#8A99AE" }}>
+                    <span style={{ fontSize: "11px", color: "var(--gray2)" }}>
                       Public call — Nov 14, 1999 (~$8.50) ·{" "}
                       <a
                         href="https://www.siliconinvestor.com/readmsg.aspx?msgid=11920168"
                         target="_blank"
                         rel="noopener"
-                        style={{ color: "#dcac47" }}
+                        style={{ color: "var(--gold-muted)" }}
                       >
                         SI msgid 11920168
                       </a>
@@ -1508,7 +1508,7 @@ export default function AboutPage() {
                         background: "#22c55e",
                       }}
                     ></div>
-                    <span style={{ fontSize: "11px", color: "#8A99AE" }}>
+                    <span style={{ fontSize: "11px", color: "var(--gray2)" }}>
                       Peak — Mar 2000 (~$115) · +1,253%
                     </span>
                   </div>
@@ -1646,7 +1646,7 @@ export default function AboutPage() {
                 <span
                   style={{
                     fontSize: "10px",
-                    color: "#8A99AE",
+                    color: "var(--gray2)",
                     fontStyle: "italic",
                   }}
                 >
@@ -1715,7 +1715,7 @@ export default function AboutPage() {
         <p
           style={{
             fontSize: "15px",
-            color: "#8899AA",
+            color: "var(--gray2)",
             maxWidth: "640px",
             marginBottom: "32px",
             lineHeight: 1.75,
@@ -1764,10 +1764,10 @@ export default function AboutPage() {
             </div>
             <div>
               <strong style={{ color: "#fff" }}>Methodology:</strong> Point &amp;
-              Figure, 35+ years
+              Figure, 25+ years
             </div>
             <div>
-              <strong style={{ color: "#fff" }}>Launch Date:</strong> July 2026
+              <strong style={{ color: "#fff" }}>Launch Date:</strong> Launched July 2026
             </div>
             <div>
               <strong style={{ color: "#fff" }}>Track Record:</strong> $10,000
@@ -1912,7 +1912,7 @@ export default function AboutPage() {
                 Download Logo (PNG) &#8599;
               </a>
               <br />
-              <span style={{ color: "#8899AA" }}>
+              <span style={{ color: "var(--gray2)" }}>
                 High-resolution headshot available on request
               </span>
             </p>

@@ -108,7 +108,7 @@ export default function ContactPage() {
             </button>
           ) : (
             <div className="cf-confirm">
-              &#10003; Thanks — we&apos;ll be in touch. Karim will respond
+              &#10003; Message received. Karim will respond
               personally.
             </div>
           )}

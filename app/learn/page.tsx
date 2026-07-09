@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "What Is Point & Figure Charting — And Why Most Traders Have Never Heard of It | OpusSignals",
   description:
-    "Former fund manager. 35-year P&F specialist. Authenticated Seeking Alpha calls predicted AAPL's bull run and a $10K→$1M options trade — before they happened.",
+    "Former fund manager. 25-year P&F specialist. Authenticated Seeking Alpha calls predicted AAPL's bull run and a $10K→$1M options trade — before they happened.",
 };
 
 export default function LearnPage() {
@@ -78,7 +78,7 @@ export default function LearnPage() {
 
           <p>
             I have been trading primarily with Point &amp; Figure charts for over
-            35 years. In 2013, my{" "}
+            25 years. In 2013, my{" "}
             <a
               href="https://seekingalpha.com/instablog/6566781-options2wealth/1409851-an-intro-to-my-blog"
               target="_blank"
@@ -97,7 +97,7 @@ export default function LearnPage() {
           <p>
             This is the methodology that OpusEngine&trade; &mdash; the proprietary
             scanning engine behind OpusSignals.com &mdash; is built on. The same
-            35-year P&amp;F framework that produced that documented track record
+            25-year P&amp;F framework that produced that documented track record
             now powers every signal the engine generates. And this article is my
             attempt to explain what it is, why it works, and why the vast majority
             of traders have never seriously considered it.
@@ -257,45 +257,45 @@ export default function LearnPage() {
                 <line x1="40" y1="125" x2="200" y2="125" />
                 <line x1="40" y1="160" x2="200" y2="160" />
               </g>
-              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$55</text>
-              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$52</text>
-              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$49</text>
-              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$46</text>
+              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$55</text>
+              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$52</text>
+              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$49</text>
+              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$46</text>
               {/* Col 1: X x3 */}
-              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 2: O x3 */}
-              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 3: X x3 same top */}
-              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 4: O x3 */}
-              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 5: X breakout */}
-              <rect x="168" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="#C8921A" strokeWidth="1" />
-              <text x="184" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <rect x="168" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="var(--gold)" strokeWidth="1" />
+              <text x="184" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Resistance line */}
-              <line x1="40" y1="90" x2="200" y2="90" stroke="#C8921A" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
-              <text x="92" y="84" fontFamily="Inter,sans-serif" fontSize="10" fill="#C8921A" opacity="0.8">resistance</text>
+              <line x1="40" y1="90" x2="200" y2="90" stroke="var(--gold)" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
+              <text x="92" y="84" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gold)" opacity="0.8">resistance</text>
               {/* BUY */}
               <line x1="184" y1="16" x2="184" y2="8" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arr1)" />
               <text x="160" y="8" fontFamily="Inter,sans-serif" fontSize="11" fill="#22c55e" fontWeight="600">BUY</text>
               {/* Legend */}
               <text x="216" y="50" fontFamily="Inter,sans-serif" fontSize="11" fill="#F8F3E8">X = rising price</text>
-              <text x="216" y="68" fontFamily="Inter,sans-serif" fontSize="11" fill="#8A99AE">O = falling price</text>
-              <text x="216" y="100" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">Each box = $3</text>
-              <text x="216" y="116" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">Reversal = 3 boxes</text>
-              <text x="216" y="140" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">Time is not shown —</text>
-              <text x="216" y="156" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">only price movement</text>
+              <text x="216" y="68" fontFamily="Inter,sans-serif" fontSize="11" fill="var(--gray2)">O = falling price</text>
+              <text x="216" y="100" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">Each box = $3</text>
+              <text x="216" y="116" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">Reversal = 3 boxes</text>
+              <text x="216" y="140" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">Time is not shown —</text>
+              <text x="216" y="156" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">only price movement</text>
             </svg>
             <p>
               Price breaks above the prior X column high &mdash; demand has
@@ -345,49 +345,49 @@ export default function LearnPage() {
                 <line x1="40" y1="125" x2="232" y2="125" />
                 <line x1="40" y1="160" x2="232" y2="160" />
               </g>
-              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$55</text>
-              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$52</text>
-              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$49</text>
-              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$46</text>
+              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$55</text>
+              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$52</text>
+              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$49</text>
+              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$46</text>
               {/* Col 1 */}
-              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 2 */}
-              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 3 */}
-              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 4 */}
-              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 5 */}
-              <text x="184" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="184" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 6 */}
-              <text x="216" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="216" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="216" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="216" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="216" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="216" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 7: breakout */}
-              <rect x="232" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="#C8921A" strokeWidth="1" />
-              <text x="248" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="248" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="248" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="248" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <rect x="232" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="var(--gold)" strokeWidth="1" />
+              <text x="248" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="248" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="248" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="248" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Resistance */}
-              <line x1="40" y1="90" x2="264" y2="90" stroke="#C8921A" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
-              <text x="100" y="84" fontFamily="Inter,sans-serif" fontSize="10" fill="#C8921A" opacity="0.8">tested 3&times;</text>
+              <line x1="40" y1="90" x2="264" y2="90" stroke="var(--gold)" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
+              <text x="100" y="84" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gold)" opacity="0.8">tested 3&times;</text>
               {/* BUY */}
               <line x1="248" y1="16" x2="248" y2="8" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arr2)" />
               <text x="224" y="8" fontFamily="Inter,sans-serif" fontSize="11" fill="#22c55e" fontWeight="600">BUY</text>
-              <text x="280" y="50" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">Strongest</text>
-              <text x="280" y="64" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">standard</text>
-              <text x="280" y="78" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">P&amp;F buy signal</text>
+              <text x="280" y="50" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">Strongest</text>
+              <text x="280" y="64" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">standard</text>
+              <text x="280" y="78" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">P&amp;F buy signal</text>
             </svg>
             <p>
               Three separate tests of the same resistance level &mdash; then a
@@ -424,7 +424,7 @@ export default function LearnPage() {
               </desc>
               <defs>
                 <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M2 1L8 5L2 9" fill="none" stroke="#C8921A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 1L8 5L2 9" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </marker>
               </defs>
               <g stroke="rgba(200,146,26,0.12)" strokeWidth="0.5">
@@ -443,52 +443,52 @@ export default function LearnPage() {
                 <line x1="40" y1="160" x2="264" y2="160" />
                 <line x1="40" y1="195" x2="264" y2="195" />
               </g>
-              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$58</text>
-              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$55</text>
-              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$52</text>
-              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$49</text>
-              <text x="32" y="199" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$46</text>
+              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$58</text>
+              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$55</text>
+              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$52</text>
+              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$49</text>
+              <text x="32" y="199" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$46</text>
               {/* Col 1 */}
-              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 2 */}
-              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="212" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="212" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 3 */}
-              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 4 */}
-              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="212" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="212" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 5: Triple top breakout */}
-              <text x="184" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="172" y="78" fontFamily="Inter,sans-serif" fontSize="9" fill="#C8921A">Triple Top</text>
-              <text x="172" y="90" fontFamily="Inter,sans-serif" fontSize="9" fill="#C8921A">breakout</text>
+              <text x="184" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="195" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="172" y="78" fontFamily="Inter,sans-serif" fontSize="9" fill="var(--gold)">Triple Top</text>
+              <text x="172" y="90" fontFamily="Inter,sans-serif" fontSize="9" fill="var(--gold)">breakout</text>
               {/* Col 6: Pullback holds */}
-              <text x="216" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="216" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="216" y="175" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="216" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="216" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="216" y="175" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               <text x="226" y="185" fontFamily="Inter,sans-serif" fontSize="9" fill="#22c55e">holds!</text>
               {/* Col 7: Catapult */}
-              <rect x="248" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="#C8921A" strokeWidth="1" />
-              <text x="264" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="264" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="264" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="264" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="280" y="30" fontFamily="Inter,sans-serif" fontSize="10" fill="#C8921A" fontWeight="700">CATAPULT</text>
+              <rect x="248" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="var(--gold)" strokeWidth="1" />
+              <text x="264" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="264" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="264" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="264" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="280" y="30" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gold)" fontWeight="700">CATAPULT</text>
               {/* Peak labels */}
-              <text x="56" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="#8A99AE">peak 1</text>
-              <text x="120" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="#8A99AE">peak 2</text>
-              <text x="184" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="#8A99AE">peak 3</text>
+              <text x="56" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="var(--gray2)">peak 1</text>
+              <text x="120" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="var(--gray2)">peak 2</text>
+              <text x="184" y="114" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="9" fill="var(--gray2)">peak 3</text>
               {/* Resistance line */}
-              <line x1="40" y1="125" x2="280" y2="125" stroke="#C8921A" strokeWidth="1" strokeDasharray="4 3" opacity="0.4" />
+              <line x1="40" y1="125" x2="280" y2="125" stroke="var(--gold)" strokeWidth="1" strokeDasharray="4 3" opacity="0.4" />
             </svg>
             <p>
               Three resistance peaks, a Triple Top Breakout, a pullback that holds
@@ -498,7 +498,7 @@ export default function LearnPage() {
 
           <h3>The Bearish Resistance Line Pierce &mdash; The Most Powerful Signal of All</h3>
           <p>
-            In 35 years of trading with Point &amp; Figure charts, I have found the
+            In 25+ years of trading with Point &amp; Figure charts, I have found the
             Bearish Resistance Line Pierce to be the single most bullish &mdash;
             and most profitable &mdash; signal the methodology produces. When I see
             a genuine BRL pierce, I pay attention in a way that no other pattern
@@ -530,7 +530,7 @@ export default function LearnPage() {
             <p>
               &ldquo;Of all the signals Point &amp; Figure produces, the Bearish
               Resistance Line Pierce is the one that has made me the most money over
-              35 years. When a stock has been under its BRL and finally breaks
+              25+ years. When a stock has been under its BRL and finally breaks
               through, the move that follows is rarely small.&rdquo;
             </p>
             <cite>&mdash; Karim Pirani, Founder &amp; Architect, OpusEngine&trade;</cite>
@@ -604,30 +604,30 @@ export default function LearnPage() {
                 <line x1="40" y1="125" x2="232" y2="125" />
                 <line x1="40" y1="160" x2="232" y2="160" />
               </g>
-              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$55</text>
-              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$52</text>
-              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$49</text>
-              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$46</text>
+              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$55</text>
+              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$52</text>
+              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$49</text>
+              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$46</text>
               {/* Col 1 */}
-              <text x="56" y="55" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="56" y="55" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 2 */}
-              <text x="88" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="88" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 3 */}
-              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 4 */}
-              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="152" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 5: PIERCE */}
-              <rect x="168" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="#C8921A" strokeWidth="1" />
-              <text x="184" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="184" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <rect x="168" y="22" width="32" height="32" rx="4" fill="rgba(200,146,26,0.15)" stroke="var(--gold)" strokeWidth="1" />
+              <text x="184" y="43" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="78" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="113" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="184" y="148" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* BRL */}
               <line x1="40" y1="20" x2="232" y2="68" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.8" />
               <text x="236" y="72" fontFamily="Inter,sans-serif" fontSize="10" fill="#ef4444">BRL (45°)</text>
@@ -635,12 +635,12 @@ export default function LearnPage() {
               <line x1="199" y1="16" x2="199" y2="8" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arr4)" />
               <text x="166" y="8" fontFamily="Inter,sans-serif" fontSize="11" fill="#22c55e" fontWeight="600">PIERCE!</text>
               <text x="252" y="50" fontFamily="Inter,sans-serif" fontSize="11" fill="#ef4444">Red line = BRL</text>
-              <text x="252" y="68" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">45° decline from</text>
-              <text x="252" y="82" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">chart high</text>
+              <text x="252" y="68" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">45° decline from</text>
+              <text x="252" y="82" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">chart high</text>
               <text x="252" y="110" fontFamily="Inter,sans-serif" fontSize="11" fill="#F8F3E8">X column pierces</text>
               <text x="252" y="126" fontFamily="Inter,sans-serif" fontSize="11" fill="#F8F3E8">from below</text>
-              <text x="252" y="152" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">Signals potential</text>
-              <text x="252" y="167" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">major trend reversal</text>
+              <text x="252" y="152" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">Signals potential</text>
+              <text x="252" y="167" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">major trend reversal</text>
             </svg>
             <p>
               The 45° Bearish Resistance Line acts as a ceiling &mdash; piercing it
@@ -720,40 +720,40 @@ export default function LearnPage() {
                 <line x1="40" y1="125" x2="232" y2="125" />
                 <line x1="40" y1="160" x2="232" y2="160" />
               </g>
-              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$55</text>
-              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$52</text>
-              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$49</text>
-              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">$46</text>
+              <text x="32" y="59" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$55</text>
+              <text x="32" y="94" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$52</text>
+              <text x="32" y="129" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$49</text>
+              <text x="32" y="164" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">$46</text>
               {/* Col 1 */}
-              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="56" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="56" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 2 */}
-              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="88" y="190" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="88" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="88" y="190" textAnchor="middle" fontFamily="monospace" fontSize="14" fontWeight="600" fill="var(--gray2)">O</text>
               {/* Col 3 */}
-              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
-              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="#C8921A">X</text>
+              <text x="120" y="90" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="125" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
+              <text x="120" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="700" fill="var(--gold)">X</text>
               {/* Col 4: BSL pierce */}
               <rect x="136" y="110" width="32" height="80" rx="4" fill="rgba(239,68,68,0.1)" stroke="#ef4444" strokeWidth="1" />
-              <text x="152" y="130" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
-              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="#8A99AE">O</text>
+              <text x="152" y="130" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="160" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
+              <text x="152" y="185" textAnchor="middle" fontFamily="monospace" fontSize="20" fontWeight="600" fill="var(--gray2)">O</text>
               {/* BSL */}
               <line x1="40" y1="190" x2="232" y2="142" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.8" />
               <text x="236" y="148" fontFamily="Inter,sans-serif" fontSize="10" fill="#22c55e">BSL (45°)</text>
               <text x="136" y="120" fontFamily="Inter,sans-serif" fontSize="11" fill="#ef4444">pierce!</text>
-              <path d="M 168 170 Q 210 195 230 155" fill="none" stroke="#C8921A" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.7" />
-              <text x="232" y="138" fontFamily="Inter,sans-serif" fontSize="10" fill="#C8921A" fontStyle="italic">fake-out?</text>
+              <path d="M 168 170 Q 210 195 230 155" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.7" />
+              <text x="232" y="138" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gold)" fontStyle="italic">fake-out?</text>
               <text x="252" y="50" fontFamily="Inter,sans-serif" fontSize="11" fill="#22c55e">Green = BSL</text>
-              <text x="252" y="66" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">45° ascent from</text>
-              <text x="252" y="80" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE">chart low</text>
+              <text x="252" y="66" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">45° ascent from</text>
+              <text x="252" y="80" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)">chart low</text>
               <text x="252" y="106" fontFamily="Inter,sans-serif" fontSize="11" fill="#ef4444">O column breaks</text>
               <text x="252" y="122" fontFamily="Inter,sans-serif" fontSize="11" fill="#ef4444">below BSL</text>
-              <text x="252" y="148" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">Defensive signal &mdash;</text>
-              <text x="252" y="162" fontFamily="Inter,sans-serif" fontSize="10" fill="#8A99AE" fontStyle="italic">but check fundamentals</text>
-              <text x="252" y="178" fontFamily="Inter,sans-serif" fontSize="10" fill="#C8921A" fontStyle="italic">before exiting</text>
+              <text x="252" y="148" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">Defensive signal &mdash;</text>
+              <text x="252" y="162" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gray2)" fontStyle="italic">but check fundamentals</text>
+              <text x="252" y="178" fontFamily="Inter,sans-serif" fontSize="10" fill="var(--gold)" fontStyle="italic">before exiting</text>
             </svg>
             <p>
               A BSL pierce triggers a defensive signal &mdash; but strong
@@ -1020,7 +1020,7 @@ export default function LearnPage() {
               stays below the BRL, the stock is in a structural downtrend regardless
               of short-term rallies or analyst opinions. When price pierces the BRL
               from below and sustains above it, the bearish trend structure has
-              broken. In 35 years of P&amp;F trading, I have found the BRL pierce to
+              broken. In 25+ years of P&amp;F trading, I have found the BRL pierce to
               be the single most consistently profitable signal the methodology
               produces &mdash; precisely because stocks under their BRL are ignored
               and under-owned, making the subsequent repositioning move explosive.

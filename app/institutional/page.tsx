@@ -62,7 +62,7 @@ export default function InstitutionalPage() {
           Karim Pirani offers a limited number of private one-on-one consulting
           sessions for institutional investors, family office fund managers, and
           qualified professionals seeking direct access to his{" "}
-          <strong>35+ years of P&amp;F signal expertise</strong> and the <OE />{" "}
+          <strong>25+ years of P&amp;F signal expertise</strong> and the <OE />{" "}
           methodology.
         </p>
 
@@ -184,11 +184,12 @@ export default function InstitutionalPage() {
               Founder &amp; Architect · <OE /> · PnFChart.com, Inc.
             </div>
             <p>
-              35+ years reading P&amp;F charts and market signals. In 2013, turned{" "}
+              35 years trading, 25+ years reading P&amp;F charts and market
+              signals. In 2013, turned{" "}
               <strong>$10,000 into $1,074,475 in exactly 6 months</strong> on
               Seeking Alpha &mdash; every trade posted publicly before execution,
               timestamped on record. Developer of <OE />, a proprietary
-              multi-signal stock screening methodology built on three decades of
+              multi-signal stock screening methodology built on decades of
               active market expertise.
             </p>
             <Link href="/about">Read the full story and track record &rarr;</Link>
@@ -319,7 +320,7 @@ export default function InstitutionalPage() {
               </svg>
               Submit Inquiry
             </button>
-            <div className="form-disc" style={{ color: "#8899AA" }}>
+            <div className="form-disc" style={{ color: "var(--gray2)" }}>
               By submitting this form you confirm you are an accredited investor or
               a qualified institutional buyer. Karim personally reviews all
               requests and will respond within 2 business days.

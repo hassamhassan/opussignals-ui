@@ -90,11 +90,83 @@ export async function signupFree(email: string, password: string): Promise<Me> {
   } catch {
     throw new Error(`Could not reach the API at ${API_BASE}.`);
   }
+  if (res.status === 403) throw new Error("Please verify your email first.");
   if (res.status === 409) throw new Error("That email is already registered. Try logging in.");
   if (res.status === 422) {
     throw new Error("Enter a valid email and a password of at least 8 characters.");
   }
   if (!res.ok) throw new Error(`Sign up failed (HTTP ${res.status}).`);
+  const { access_token } = (await res.json()) as { access_token: string };
+  setToken(access_token);
+  return me(access_token);
+}
+
+// ── OTP Methods ──
+
+/** Send a 6-digit OTP code to the given email. */
+export async function sendOtp(
+  email: string,
+  purpose: "signup" | "login",
+): Promise<{ message: string; expires_in: number }> {
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}/api/v1/auth/send-otp`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, purpose }),
+    });
+  } catch {
+    throw new Error(`Could not reach the API at ${API_BASE}.`);
+  }
+  if (res.status === 409) throw new Error("This email is already registered. Log in instead.");
+  if (res.status === 429) {
+    const data = await res.json().catch(() => null);
+    throw new Error(data?.detail ?? "Please wait before requesting another code.");
+  }
+  if (!res.ok) throw new Error(`Failed to send code (HTTP ${res.status}).`);
+  return (await res.json()) as { message: string; expires_in: number };
+}
+
+/** Verify a 6-digit OTP code. */
+export async function verifyOtp(
+  email: string,
+  code: string,
+  purpose: "signup" | "login",
+): Promise<{ verified: boolean; message: string }> {
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}/api/v1/auth/verify-otp`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, code, purpose }),
+    });
+  } catch {
+    throw new Error(`Could not reach the API at ${API_BASE}.`);
+  }
+  if (!res.ok) {
+    const data = await res.json().catch(() => null);
+    throw new Error(data?.detail ?? "Verification failed.");
+  }
+  return (await res.json()) as { verified: boolean; message: string };
+}
+
+/** Complete login after OTP verification (re-send credentials to get tokens). */
+export async function loginVerify(email: string, password: string): Promise<Me> {
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}/api/v1/auth/login/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    });
+  } catch {
+    throw new Error(`Could not reach the API at ${API_BASE}.`);
+  }
+  if (res.status === 401) throw new Error("Verification not complete. Please enter the OTP first.");
+  if (!res.ok) throw new Error(`Login failed (HTTP ${res.status}).`);
   const { access_token } = (await res.json()) as { access_token: string };
   setToken(access_token);
   return me(access_token);

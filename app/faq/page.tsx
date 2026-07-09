@@ -166,7 +166,7 @@ export default function FaqPage() {
                 </button>
               ) : (
                 <div className="cf-confirm">
-                  &#10003; Thanks — we&apos;ll be in touch. Karim will respond
+                  &#10003; Question received. Karim will respond
                   personally.
                 </div>
               )}
@@ -615,7 +615,7 @@ export default function FaqPage() {
           <p
             style={{
               fontSize: "13px",
-              color: "#8A99AE",
+              color: "var(--gray2)",
               fontStyle: "italic",
             }}
           >

@@ -123,7 +123,7 @@ export default function Nav() {
           <Link href="/#pricing" className={hashCls("/#pricing")}>Pricing</Link>
           <Link href="/about" className={cls("/about")}>About</Link>
           {/* FAQ is always gold (brand accent) — active state adds weight */}
-          <Link href="/faq" className={cls("/faq")} style={{ color: "#E5AA2A" }}>FAQ</Link>
+          <Link href="/faq" className={cls("/faq")} style={{ color: "var(--gold2)" }}>FAQ</Link>
           <Link href="/blog" className={cls("/blog")}>Blog</Link>
           <Link href="/institutional" className={cls("/institutional")}>Institutions</Link>
           <Link href="/contact" className={cls("/contact")}>Contact</Link>
