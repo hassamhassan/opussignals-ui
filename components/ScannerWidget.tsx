@@ -8,6 +8,7 @@ import {
   type FunnelState,
   type Pick,
   type SessionStatus,
+  type WatchListItem,
 } from "@/lib/api";
 
 const INTRO_KEY = "os_seen_intro";
@@ -142,6 +143,7 @@ export default function ScannerWidget() {
 
   // Results state.
   const [picks, setPicks] = useState<Pick[]>([]);
+  const [watchlist, setWatchlist] = useState<WatchListItem[]>([]);
   const [scanned, setScanned] = useState(false);
   const [picksNotPublished, setPicksNotPublished] = useState(false);
   const [pickDate, setPickDate] = useState<string | null>(null);
@@ -181,16 +183,21 @@ export default function ScannerWidget() {
       setFunnelState(res.funnel_state);
       setSession(res.session);
       setScanned(true);
+      // The server serves a watch list (state="watchlist") on RED-regime days,
+      // when the win-rate guarantee is breached, or when nothing clears the bar.
+      // Render it instead of silently dropping it as "not published".
+      setWatchlist(res.state === "watchlist" ? res.watchlist : []);
 
       if (res.picks.length === 0) {
         setPicks([]);
         setPickDate(null);
         setScanTimeLabel("");
-        // Empty picks in the free-picks window means the admin hasn't published
-        // yet. Empty in any later funnel state (proof window / gate / paywall)
-        // is the server enforcing the free cap — handled by the funnel UI, not
-        // the "not published" message.
-        setPicksNotPublished(res.funnel_state === "free_picks");
+        // Only claim "not published" when the free-picks window returned nothing
+        // AND there's no watch list to show; otherwise the watch list / funnel UI
+        // handles the empty-picks branch.
+        setPicksNotPublished(
+          res.funnel_state === "free_picks" && res.watchlist.length === 0,
+        );
       } else {
         setPicks(res.picks);
         const date = res.picks[0]?.pick_date ?? null;
@@ -385,6 +392,36 @@ export default function ScannerWidget() {
           <PicksNotPublished pickDate={pickDate ?? undefined} />
         )}
 
+        {/* Watch list — no pick cleared the bar today (RED regime, guarantee
+            breached, or near-misses only). Surface it rather than dropping it. */}
+        {scanned && watchlist.length > 0 && showScanner && (
+          <div className="results on" id="watchResults">
+            <div className="rhead">
+              <span className="rtitle">&#9656; On the Watch List Today</span>
+            </div>
+            <div id="watchList">
+              {watchlist.map((w, i) => (
+                <div
+                  className="pick"
+                  key={`${w.ticker}-${w.rank}`}
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <span className="prank">#{w.rank}</span>
+                  <span className="pticker">{w.ticker}</span>
+                  <span className="pdesc">{w.description || w.watch_badge}</span>
+                  <span className="psig">{w.watch_badge}</span>
+                </div>
+              ))}
+            </div>
+            <div className="snotice">
+              <p>
+                No name cleared the high-conviction bar today, so these are the
+                closest setups we&apos;re watching. Check back next session.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Free picks used — proof window running (server stops serving picks) */}
         {scanned && !picksNotPublished && picks.length === 0 && showScanner &&
           funnelState === "awaiting_sessions" && (
@@ -399,7 +436,8 @@ export default function ScannerWidget() {
           <div className="results on" id="results">
             <div className="rhead">
               <span className="rtitle">
-                &#9656; Today&apos;s 3 High-Conviction Picks
+                &#9656; Today&apos;s {picks.length} High-Conviction{" "}
+                {picks.length === 1 ? "Pick" : "Picks"}
               </span>
               <span className="rbadge" id="scanTime">
                 {scanTimeLabel}
@@ -414,12 +452,14 @@ export default function ScannerWidget() {
                 >
                   <span className="prank">#{p.rank}</span>
                   <span className="pticker">{p.ticker}</span>
+                  {/* The conviction signal is the value here — the date already
+                      shows in the results header (scanTimeLabel). */}
                   <span className="pdesc">
-                    {p.pick_date
-                      ? `Closing Price ${formatPickDate(p.pick_date)}`
-                      : p.description || p.signal_badge}
+                    {p.signal_badge || p.description}
                   </span>
-                  <span className="psig">${p.price.toFixed(2)}</span>
+                  <span className="psig">
+                    {typeof p.price === "number" ? `$${p.price.toFixed(2)}` : "—"}
+                  </span>
                 </div>
               ))}
             </div>
@@ -427,7 +467,11 @@ export default function ScannerWidget() {
               <div className="snotice" id="snotice">
                 <p>
                   These are your{" "}
-                  <strong>3 free high-conviction picks</strong>. Track their
+                  <strong>
+                    {picks.length} free high-conviction{" "}
+                    {picks.length === 1 ? "pick" : "picks"}
+                  </strong>
+                  . Track their
                   performance, then come back after{" "}
                   <strong>10 full trading sessions</strong> &mdash; no
                   weekends, no holidays, no half-days &mdash; for{" "}
@@ -531,12 +575,14 @@ export default function ScannerWidget() {
                 >
                   <span className="prank">#{p.rank}</span>
                   <span className="pticker">{p.ticker}</span>
+                  {/* The conviction signal is the value here — the date already
+                      shows in the results header (scanTimeLabel). */}
                   <span className="pdesc">
-                    {p.pick_date
-                      ? `Closing Price ${formatPickDate(p.pick_date)}`
-                      : p.description || p.signal_badge}
+                    {p.signal_badge || p.description}
                   </span>
-                  <span className="psig">${p.price.toFixed(2)}</span>
+                  <span className="psig">
+                    {typeof p.price === "number" ? `$${p.price.toFixed(2)}` : "—"}
+                  </span>
                 </div>
               ))}
             </div>
