@@ -7,7 +7,12 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import type { Pick } from "@/lib/api";
 import { getToken, logout } from "@/lib/auth";
-import { fetchDashboard, type DashboardResponse } from "@/lib/user";
+import {
+  fetchDashboard,
+  type DashboardResponse,
+  type GuaranteeStatus,
+  type WinRateBucket,
+} from "@/lib/user";
 import "./dashboard.css";
 
 const ACTIVE_STATUS = "active";
@@ -27,19 +32,19 @@ function OutcomeBadge({ pick }: { pick: Pick }) {
     // Compute sessions remaining based on pick_date if available, else show "Open".
     return <span className="outcome-badge pending">Open</span>;
   }
-  if (status === "success") {
-    const ret = pick.outcome_return_pct != null
-      ? ` +${pick.outcome_return_pct.toFixed(1)}%`
+  // Explicit sign on both outcomes so a break-even/positive time-exit reads clearly.
+  const ret =
+    pick.outcome_return_pct != null
+      ? ` ${pick.outcome_return_pct >= 0 ? "+" : ""}${pick.outcome_return_pct.toFixed(1)}%`
       : "";
+  if (status === "success") {
     return <span className="outcome-badge success">Win{ret}</span>;
   }
-  const ret = pick.outcome_return_pct != null
-    ? ` ${pick.outcome_return_pct.toFixed(1)}%`
-    : "";
   return <span className="outcome-badge failure">Loss{ret}</span>;
 }
 
 function PickRow({ pick }: { pick: Pick }) {
+  const hasPlan = pick.target_pct != null && pick.stop_pct != null;
   return (
     <div className="dash-pick-row">
       <div className="dash-pick-meta">
@@ -53,10 +58,58 @@ function PickRow({ pick }: { pick: Pick }) {
               Closing Price {fmtDate(pick.pick_date)}
             </span>
           )}
+          {pick.horizon_label && (
+            <span className="dash-pick-horizon">{pick.horizon_label}</span>
+          )}
         </div>
       </div>
       <div className="dash-pick-right">
         <div className="dash-pick-price">${pick.price.toFixed(2)}</div>
+        {hasPlan && (
+          <div className="dash-pick-plan">
+            <span className="tgt">+{pick.target_pct}%</span>
+            {" · "}
+            <span className="stp">&minus;{pick.stop_pct}%</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Authoritative win-rate cell from the backend performance buckets. */
+function PerfCell({ bucket }: { bucket: WinRateBucket }) {
+  return (
+    <div className="dash-perf">
+      <div className="dash-perf-label">{bucket.label}</div>
+      <div className={`dash-perf-rate${bucket.win_rate == null ? " na" : ""}`}>
+        {bucket.win_rate == null ? "—" : `${Math.round(bucket.win_rate)}%`}
+      </div>
+      <div className="dash-perf-sub">
+        {bucket.wins}W · {bucket.losses}L · {bucket.pending} open
+      </div>
+    </div>
+  );
+}
+
+/** 70% win-rate guarantee status over the rolling window. */
+function GuaranteeCard({ g }: { g: GuaranteeStatus }) {
+  const ok = !g.breached;
+  const headline =
+    g.win_rate == null
+      ? "Tracking — no picks have closed in the window yet"
+      : ok
+        ? `On track — ${Math.round(g.win_rate)}% win rate`
+        : `Below guarantee — ${Math.round(g.win_rate)}% win rate`;
+  return (
+    <div className="dash-guarantee">
+      <div className="g-icon">{ok ? "✓" : "⚠"}</div>
+      <div>
+        <div className={`g-status ${ok ? "ok" : "breached"}`}>{headline}</div>
+        <div className="g-detail">
+          {g.threshold}% guarantee over the last {g.window_sessions} trading sessions ·{" "}
+          {g.wins}W / {g.losses}L ({g.closed} closed)
+        </div>
       </div>
     </div>
   );
@@ -237,6 +290,34 @@ export default function DashboardPage() {
               </div>
             )}
 
+            {/* 70% win-rate guarantee — the authoritative rolling-window status */}
+            <div className="dash-card">
+              <h2>70% win-rate guarantee</h2>
+              <p className="dash-hint">
+                If our published win rate falls below the guarantee over the
+                rolling window, picks are held back — so can you pause.
+              </p>
+              <GuaranteeCard g={data.guarantee} />
+            </div>
+
+            {/* Published performance — overall, by horizon, by range */}
+            <div className="dash-card">
+              <h2>Published performance</h2>
+              <p className="dash-hint">
+                Win rate across all published picks — the numbers behind the
+                guarantee, broken out by holding horizon and price range.
+              </p>
+              <div className="dash-perf-grid">
+                <PerfCell bucket={{ ...data.performance.overall, label: "Overall" }} />
+                {data.performance.by_horizon.map((b) => (
+                  <PerfCell key={`h-${b.label}`} bucket={b} />
+                ))}
+                {data.performance.by_range.map((b) => (
+                  <PerfCell key={`r-${b.label}`} bucket={b} />
+                ))}
+              </div>
+            </div>
+
             {/* Credits */}
             {data.credits.length > 0 && (
               <div className="dash-card">
@@ -246,7 +327,7 @@ export default function DashboardPage() {
                 </p>
                 {data.credits.map((c, i) => (
                   <div key={`${c.credited_date}-${i}`} className="dash-credit">
-                    <span className="c-date">{c.credited_date}</span>
+                    <span className="c-date">{fmtDate(c.credited_date)}</span>
                     <span className="c-reason">{c.reason}</span>
                   </div>
                 ))}
